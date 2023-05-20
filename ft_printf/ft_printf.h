@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/20 17:58:47 by tmoumni          ###   ########.fr       */
+/*   Created: 2022/12/10 15:08:49 by tmoumni           #+#    #+#             */
+/*   Updated: 2022/12/25 11:14:51 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		ft_printf("%s\n", av[1]);
-	return (0);
-}
+# include <stdarg.h>
+# include <string.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+
+int	ft_printf(const char *str, ...);
+int	ft_putchar(char c);
+int	ft_puthex(unsigned int num, char c);
+int	ft_putnbr(int num);
+int	ft_putptr(unsigned long num);
+int	ft_putstr(char *str);
+int	ft_putunbr(unsigned int num);
+
+#endif

@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/20 17:58:47 by tmoumni          ###   ########.fr       */
+/*   Created: 2022/12/11 09:45:00 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/05/04 12:54:27 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_putstr(char *str)
 {
-	if (ac == 2)
-		ft_printf("%s\n", av[1]);
-	return (0);
+	int	length;
+
+	if (!str)
+		str = "(null)";
+	length = 0;
+	while (str[length])
+		length += ft_putchar(str[length]);
+	return (length);
 }
