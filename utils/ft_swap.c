@@ -6,22 +6,25 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:12:24 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/26 18:37:32 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/26 18:51:25 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_swap(t_stack **stack)
+void	ft_swap(t_stack **head)
 {
 	t_stack	*tmp;
 
-	if (!stack || !(*stack) || !(*stack)->next)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
-	tmp = (*stack)->next;
-	tmp->next = *stack;
-	(*stack)->prev = tmp;
-	*stack = tmp;
+	tmp = (*head)->next;
+	tmp->next = *head;
+	(*head)->prev = tmp;
+	if (tmp->next)
+		tmp->next->prev = *head;
+	*head = tmp;
+	(*head)->prev = NULL;
 }
 
 void	sa(t_stack **a)

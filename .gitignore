@@ -3,3 +3,4 @@ git.sh
 push_swap
 a.out
 *.o
+.tldr
