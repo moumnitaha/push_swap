@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_stack_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/26 15:18:51 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/05/26 16:52:42 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_stack_init(t_stack **a, char **av)
 {
-	t_stack	*a;
-	t_stack	*b;
+	long	nbr;
 	int		i;
 
 	i = 0;
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	ft_stack_init(&a, av);
-	return (0);
+	while (av[i])
+	{
+		printf("[%d]\t", ft_error_syntax(av[i]));
+		nbr = ft_atol(av[i]);
+		printf("{{{%d}}}\t", ft_error_repitition(av, nbr));
+		printf("[[%ld]]\n", nbr);
+		ft_append_node(a, nbr);
+		i++;
+	}
 }
