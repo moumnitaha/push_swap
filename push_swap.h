@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 18:48:03 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 19:22:05 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,8 @@ void			ra(t_stack_node **a);
 void			rb(t_stack_node **b);
 void			rr(t_stack_node **a, t_stack_node **b);
 void			draw_stack(t_stack_node *head);
+void			ft_rev_rotate(t_stack_node **head);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 #endif
