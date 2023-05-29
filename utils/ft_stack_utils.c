@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 18:55:12 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 19:24:28 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_error_repitition(char **av, int nbr)
 
 void	draw_stack(t_stack_node *head)
 {
-	while(head)
+	while (head)
 	{
 		printf("|%d|\n", head->value);
 		head = head->next;
