@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 11:47:45 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 18:48:55 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,13 @@ int	ft_error_repitition(char **av, int nbr)
 	if (count > 1)
 		return (0);
 	return (1);
+}
+
+void	draw_stack(t_stack_node *head)
+{
+	while(head)
+	{
+		printf("|%d|\n", head->value);
+		head = head->next;
+	}
 }
