@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 17:39:10 by tmoumni           #+#    #+#              #
-#    Updated: 2023/05/26 17:57:42 by tmoumni          ###   ########.fr        #
+#    Updated: 2023/05/29 17:38:17 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ END = \033[0m
 SRCS = ft_printf/ft_printf.c ft_printf/ft_putnbr.c ft_printf/ft_putchar.c ft_printf/ft_putstr.c\
 	ft_printf/ft_puthex.c ft_printf/ft_putunbr.c ft_printf/ft_putptr.c push_swap.c\
 	libft/ft_split.c libft/ft_atoi.c libft/ft_isalnum.c libft/ft_isdigit.c libft/ft_isalpha.c\
-	utils/ft_stack_init.c utils/ft_stack_utils.c utils/ft_atol.c utils/ft_push.c
+	utils/ft_stack_init.c utils/ft_stack_utils.c utils/ft_atol.c utils/ft_push.c utils/ft_swap.c\
+	utils/ft_rotate.c
 OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)

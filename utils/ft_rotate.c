@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 18:12:24 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 12:12:07 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/05/29 17:24:48 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/05/29 17:45:22 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_swap(t_stack_node **head)
+void	ft_rotate(t_stack_node **head)
 {
-	if (!head || !(*head) || !(*head)->next)
-		return ;
+	t_stack_node	*last_node;
+
+	last_node = ft_find_last_node(*head);
+	last_node->next = *head;
 	*head = (*head)->next;
-	(*head)->prev->prev = *head;
-	(*head)->prev->next = (*head)->next;
-	if ((*head)->next)
-		(*head)->next->prev = (*head)->prev;
-	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
-void	sa(t_stack_node **a)
+void	ra(t_stack_node **a)
 {
-	ft_swap(a);
-	ft_putstr("sa\n");
+	ft_rotate(a);
+	ft_putstr("ra\n");
 }
 
-void	sb(t_stack_node **b)
+void	rb(t_stack_node **b)
 {
-	ft_swap(b);
-	ft_putstr("sb\n");
+	ft_rotate(b);
+	ft_putstr("rb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	rr(t_stack_node **a, t_stack_node **b)
 {
-	ft_swap(a);
-	ft_swap(b);
-	ft_putstr("ss\n");
+	ra(a);
+	rb(b);
+	ft_putstr("rr\n");
 }

@@ -6,15 +6,15 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:39:51 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/26 17:58:15 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 17:42:53 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_stack **dest, t_stack **src)
+void	ft_push(t_stack_node **dest, t_stack_node **src)
 {
-	t_stack	*new;
+	t_stack_node	*new;
 
 	if (!(*src))
 		return ;
@@ -35,14 +35,14 @@ void	push(t_stack **dest, t_stack **src)
 	}
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack_node **a, t_stack_node **b)
 {
-	push(a, b);
+	ft_push(a, b);
 	ft_putstr("pa\n");
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	pb(t_stack_node **b, t_stack_node **a)
 {
-	push(b, a);
+	ft_push(b, a);
 	ft_putstr("pb\n");
 }

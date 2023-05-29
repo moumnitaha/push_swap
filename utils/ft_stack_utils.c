@@ -6,13 +6,13 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/26 16:48:40 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 11:47:45 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*ft_find_last_node(t_stack *head)
+t_stack_node	*ft_find_last_node(t_stack_node *head)
 {
 	if (!head)
 		return (NULL);
@@ -21,14 +21,14 @@ t_stack	*ft_find_last_node(t_stack *head)
 	return (head);
 }
 
-void	ft_append_node(t_stack **stack_a, int nbr)
+void	ft_append_node(t_stack_node **stack_a, int nbr)
 {
-	t_stack	*new_node;
-	t_stack	*last_node;
+	t_stack_node	*new_node;
+	t_stack_node	*last_node;
 
 	if (!stack_a)
 		return ;
-	new_node = malloc(sizeof(t_stack));
+	new_node = malloc(sizeof(t_stack_node));
 	if (!new_node)
 		return ;
 	new_node->value = nbr;

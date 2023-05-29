@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/26 15:18:51 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 17:42:23 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		i;
+	t_stack_node	*a;
+	t_stack_node	*b;
+	int				i;
 
 	i = 0;
 	a = NULL;
@@ -26,5 +26,17 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	ft_stack_init(&a, av);
+	printf("%d\n", a->value);
+	printf("%d\n", a->next->value);
+	printf("%d\n", a->next->next->value);
+	printf("%d\n", a->next->next->next->value);
+	printf("%d\n", a->next->next->next->next->value);
+	ft_rotate(&a);
+	printf("---------\n");
+	printf("%d\n", a->value);
+	printf("%d\n", a->next->value);
+	printf("%d\n", a->next->next->value);
+	printf("%d\n", a->next->next->next->value);
+	printf("%d\n", a->next->next->next->next->value);
 	return (0);
 }
