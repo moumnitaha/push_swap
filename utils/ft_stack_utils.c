@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 18:48:55 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/29 18:55:12 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ void	ft_append_node(t_stack_node **stack_a, int nbr)
 	{
 		*stack_a = new_node;
 		new_node->prev = NULL;
+		new_node->next = NULL;
 	}
 	else
 	{
 		last_node = ft_find_last_node(*stack_a);
 		last_node->next = new_node;
 		new_node->prev = last_node;
+		new_node->next = NULL;
 	}
 }
 
