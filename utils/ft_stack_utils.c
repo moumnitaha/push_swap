@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/30 12:54:12 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:50:42 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ int	int_check(long nbr)
 
 void	draw_stack(t_stack_node *head)
 {
-	t_stack_node *last = ft_find_last_node(head);
+	t_stack_node	*last;
+
+	last = ft_find_last_node(head);
 	while (last)
 	{
 		printf("|%d|\n", last->value);
