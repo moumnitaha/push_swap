@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 19:25:44 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:48:53 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ typedef struct s_stack_node {
 
 t_stack_node	*ft_find_last_node(t_stack_node *head);
 void			ft_append_node(t_stack_node **stack, int nbr);
-void			ft_stack_init(t_stack_node **a, char **av);
+void			ft_stack_init(t_stack_node **a, char *arg);
 int				ft_error_syntax(char *str);
 int				ft_error_repitition(char **av, int nbr);
+int				int_check(long nbr);
 long			ft_atol(const char *str);
 void			ft_push(t_stack_node **src, t_stack_node **dest);
 void			pa(t_stack_node **a, t_stack_node **b);

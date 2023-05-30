@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 19:05:30 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 19:24:04 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:49:10 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	ft_rev_rotate(t_stack_node **head)
 		return ;
 	last_node = ft_find_last_node(*head);
 	last_node->prev->next = NULL;
-	last_node->prev = NULL;
 	last_node->next = *head;
+	last_node->prev = NULL;
+	(*head)->prev = last_node;
 	*head = last_node;
 }
 
@@ -39,7 +40,7 @@ void	rrb(t_stack_node **b)
 
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
-	rra(a);
-	rrb(b);
+	ft_rev_rotate(a);
+	ft_rev_rotate(b);
 	ft_putstr("rrr\n");
 }

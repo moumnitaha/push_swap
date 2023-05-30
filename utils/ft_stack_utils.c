@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 19:24:28 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/30 12:54:12 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	ft_error_syntax(char *str)
 		if (!i && (str[0] == '-' || str[0] == '+'))
 			i++;
 		if (!ft_isdigit(str[i]))
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_error_repitition(char **av, int nbr)
@@ -82,11 +82,19 @@ int	ft_error_repitition(char **av, int nbr)
 	return (1);
 }
 
+int	int_check(long nbr)
+{
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return (0);
+	return (1);
+}
+
 void	draw_stack(t_stack_node *head)
 {
-	while (head)
+	t_stack_node *last = ft_find_last_node(head);
+	while (last)
 	{
-		printf("|%d|\n", head->value);
-		head = head->next;
+		printf("|%d|\n", last->value);
+		last = last->prev;
 	}
 }
