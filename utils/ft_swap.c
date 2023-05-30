@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:12:24 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/29 12:12:07 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/30 15:09:43 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	ft_swap(t_stack_node **head)
 	*head = (*head)->next;
 	(*head)->prev->prev = *head;
 	(*head)->prev->next = (*head)->next;
-	if ((*head)->next)
-		(*head)->next->prev = (*head)->prev;
+	(*head)->next->prev = (*head)->prev;
 	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
 }
