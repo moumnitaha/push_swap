@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/30 14:48:53 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/05/31 18:29:54 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <limits.h> 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
-# define NULL __DARWIN_NULL
 
 typedef struct s_stack_node {
 	int					value;
