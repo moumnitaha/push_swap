@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 15:59:17 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 16:56:06 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ void	draw_stack(t_stack_node *head)
 	printf("-----\n");
 	while (last)
 	{
-		printf("|%d|\t", last->value);
-		printf("pos: (%d)\t", last->current_pos);
-		printf("mid: (%d)\n", last->above_median);
+		printf("|%d|\n", last->value);
+		// printf("pos: (%d)\t", last->current_pos);
+		// printf("mid: (%d)\n", last->above_median);
 		last = last->prev;
 	}
 	printf("-----\n");
@@ -150,15 +150,83 @@ void	set_position(t_stack_node *head)
 	}
 }
 
-int	big_node(t_stack_node *head)
+t_stack_node	*big_node(t_stack_node *head)
 {
-	int	big;
-	big = INT_MIN;
-	while (head->next)
+	int				big_value;
+	t_stack_node	*big_node;
+
+	big_node = NULL;
+	big_value = INT_MIN;
+	if (!head)
+		return (NULL);
+	while (head)
 	{
-		if (head->value >= big)
-			big = head->value;
+		if (head->value >= big_value)
+		{
+			big_value = head->value;
+			big_node = head;
+		}
 		head = head->next;
 	}
-	return (big);
+	return (big_node);
+}
+
+t_stack_node	*small_node(t_stack_node *head)
+{
+	int				small_value;
+	t_stack_node	*small_node;
+
+	small_node = NULL;
+	small_value = INT_MAX;
+	if (!head)
+		return (NULL);
+	while (head)
+	{
+		if (head->value <= small_value)
+		{
+			small_value = head->value;
+			small_node = head;
+		}
+		head = head->next;
+	}
+	return (small_node);
+}
+
+void	sort_of_three(t_stack_node *head)
+{
+	t_stack_node 	*big;
+	t_stack_node 	*small;
+	t_stack_node 	*last;
+
+	big = big_node(head);
+	small = small_node(head);
+	last = ft_find_last_node(head);
+	if (big == head && small == last)
+	{
+		ra(&head);
+		sa(&head);
+	}
+	else if (big == head && small != last)
+		ra(&head);
+	else if (small != head && big == last)
+		sa(&head);
+	else if (big != head && small == last)
+		rra(&head);
+	else if (small == head && big != last)
+	{
+		sa(&head);
+		ra(&head);
+	}
+}
+
+void	sort_of_five(t_stack_node *head)
+{
+	t_stack_node	*big;
+	t_stack_node	*small;
+	t_stack_node	*last;
+
+	big = big_node(head);
+	small = small_node(head);
+	last = ft_find_last_node(head);
+	
 }

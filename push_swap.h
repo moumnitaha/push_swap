@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 15:56:30 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 16:21:52 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 typedef struct s_stack_node {
 	int					value;
 	int					current_pos;
+	int					above_median;
 	int					final_index;
 	int					push_price;
-	int					above_median;
 	int					cheapest;
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
@@ -32,14 +32,16 @@ typedef struct s_stack_node {
 }	t_stack_node;
 
 t_stack_node	*ft_find_last_node(t_stack_node *head);
+t_stack_node	*big_node(t_stack_node *head);
+t_stack_node	*small_node(t_stack_node *head);
 void			ft_append_node(t_stack_node **stack, int nbr);
 void			ft_stack_init(t_stack_node **a, char *arg);
+void			sort_of_three(t_stack_node *head);
 int				ft_error_syntax(char *str);
 int				ft_error_repitition(char **av, int nbr);
 int				int_check(long nbr);
 int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
-int				big_node(t_stack_node *head);
 long			ft_atol(const char *str);
 void			set_position(t_stack_node *head);
 void			ft_push(t_stack_node **src, t_stack_node **dest);
