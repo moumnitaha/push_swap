@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 17:00:00 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 17:20:50 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	main(int ac, char **av)
 		sa(&a);
 	if (stack_len(a) == 3)
 		sort_of_three(a);
+	if (stack_len(a) == 5)
+		sort_of_five(a);
 	draw_stack(a);
 	// pb(&b, &a);
 	// pb(&b, &a);

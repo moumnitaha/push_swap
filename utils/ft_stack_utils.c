@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 16:56:06 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 17:38:09 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,5 +228,4 @@ void	sort_of_five(t_stack_node *head)
 	big = big_node(head);
 	small = small_node(head);
 	last = ft_find_last_node(head);
-	
 }
