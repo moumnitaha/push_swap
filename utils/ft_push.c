@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:39:51 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/30 12:24:49 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 14:07:22 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,20 @@ void	ft_push(t_stack_node **dest, t_stack_node **src)
 	node_to_push = ft_find_last_node(*src);
 	if (!(*dest))
 	{
-		node_to_push->prev->next = NULL;
+		if (node_to_push->prev)
+			node_to_push->prev->next = NULL;
+		else
+			*src = NULL;
 		*dest = node_to_push;
 		node_to_push->next = NULL;
 		node_to_push->prev = NULL;
 	}
 	else
 	{
-		node_to_push->prev->next = NULL;
+		if (node_to_push->prev)
+			node_to_push->prev->next = NULL;
+		else
+			*src = NULL;
 		last_node = ft_find_last_node(*dest);
 		last_node->next = node_to_push;
 		last_node->next->prev = last_node;

@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/31 18:29:54 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 13:59:10 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			ft_stack_init(t_stack_node **a, char *arg);
 int				ft_error_syntax(char *str);
 int				ft_error_repitition(char **av, int nbr);
 int				int_check(long nbr);
+int				is_sorted(t_stack_node *head);
 long			ft_atol(const char *str);
 void			ft_push(t_stack_node **src, t_stack_node **dest);
 void			pa(t_stack_node **a, t_stack_node **b);
