@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 18:42:18 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 23:22:50 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,43 +195,30 @@ t_stack_node	*small_node(t_stack_node *head)
 void	sort_of_three(t_stack_node *head)
 {
 	t_stack_node 	*big;
-	t_stack_node 	*small;
-	t_stack_node 	*last;
 
 	big = big_node(head);
-	small = small_node(head);
-	last = ft_find_last_node(head);
-	if (big == head && small == last)
-	{
+	if (head == big)
 		ra(&head);
-		sa(&head);
-	}
-	else if (big == head && small != last)
-		ra(&head);
-	else if (small != head && big == last)
-		sa(&head);
-	else if (big != head && small == last)
+	if (head->next == big)
 		rra(&head);
-	else if (small == head && big != last)
-	{
+	if (head->next == small_node(head))
 		sa(&head);
-		ra(&head);
-	}
 }
 
 void	sort_of_five(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node	*big;
-	t_stack_node	*small;
-	t_stack_node	*last;
-	t_stack_node	*tmp;
+	// t_stack_node	*big;
+	// t_stack_node	*small;
+	// t_stack_node	*last;
+	// t_stack_node	*tmp;
 
-	big = big_node(a);
-	small = small_node(a);
-	last = ft_find_last_node(a);
-	if (big->above_median)
-	{
-		tmp = NULL;
-		b = NULL;
-	}
+	// big = big_node(a);
+	// small = small_node(a);
+	// last = ft_find_last_node(a);
+	// if (big->above_median)
+	// {
+	// 	tmp = NULL;
+	// 	b = NULL;
+	// }
+	printf("%d %d\n", a->value, b->value);
 }
