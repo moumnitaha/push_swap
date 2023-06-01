@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 14:04:15 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 14:16:06 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int ac, char **av)
 		i++;
 	}
 	draw_stack(a);
-	// if (is_sorted(a))
-	// 	printf("[[Sorted Array]]\n");
+	if (is_sorted(a))
+		printf("[[Sorted Array]]\n");
 	pb(&b, &a);
 	pb(&b, &a);
 	pb(&b, &a);
