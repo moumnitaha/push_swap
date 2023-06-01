@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 15:03:07 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:33:59 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,9 @@ void	draw_stack(t_stack_node *head)
 	printf("-----\n");
 	while (last)
 	{
-		printf("|%d|\n", last->value);
+		printf("|%d|\t", last->value);
+		printf("pos: (%d)\t", last->current_pos);
+		printf("mid: (%d)\n", last->above_median);
 		last = last->prev;
 	}
 	printf("-----\n");
@@ -129,7 +131,21 @@ int	stack_len(t_stack_node *head)
 	return (len);
 }
 
-// void	set_position(t_stack_node *head)
-// {
+void	set_position(t_stack_node *head)
+{
+	int	mid;
+	int i;
 
-// }
+	mid = stack_len(head) / 2;
+	i = 0;
+	while (head)
+	{
+		head->current_pos = i;
+		if (i >= mid)
+			head->above_median = 1;
+		else
+			head->above_median = 0;
+		head = head->next;
+		i++;
+	}
+}
