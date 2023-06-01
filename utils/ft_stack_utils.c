@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 17:38:09 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 18:42:18 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ void	draw_stack(t_stack_node *head)
 	printf("-----\n");
 	while (last)
 	{
-		printf("|%d|\n", last->value);
+		printf("|%d|\t", last->value);
 		// printf("pos: (%d)\t", last->current_pos);
-		// printf("mid: (%d)\n", last->above_median);
+		printf("mid: (%d)\n", last->above_median);
 		last = last->prev;
 	}
 	printf("-----\n");
@@ -219,13 +219,19 @@ void	sort_of_three(t_stack_node *head)
 	}
 }
 
-void	sort_of_five(t_stack_node *head)
+void	sort_of_five(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*big;
 	t_stack_node	*small;
 	t_stack_node	*last;
+	t_stack_node	*tmp;
 
-	big = big_node(head);
-	small = small_node(head);
-	last = ft_find_last_node(head);
+	big = big_node(a);
+	small = small_node(a);
+	last = ft_find_last_node(a);
+	if (big->above_median)
+	{
+		tmp = NULL;
+		b = NULL;
+	}
 }
