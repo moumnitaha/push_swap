@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 14:28:14 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:06:09 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
+	{
+		ft_printf("Error!\nUsage: ./push_swap <Array>\n");
 		return (1);
+	}
 	while (i < ac)
 	{
 		splited = ft_split(av[i], ' ');
@@ -40,14 +43,16 @@ int	main(int ac, char **av)
 		free(tmp);
 		i++;
 	}
-	draw_stack(a);
 	if (is_sorted(a))
 		printf("[[Sorted Array]]\n");
-	pb(&b, &a);
-	pb(&b, &a);
-	pb(&b, &a);
 	draw_stack(a);
-	draw_stack(b);
+	printf("[[[%d]]]\n", stack_len(a));
+	// pb(&b, &a);
+	// pb(&b, &a);
+	// draw_stack(a);
+	sa(&a);
+	draw_stack(a);
+	// draw_stack(b);
 	// rrr(&a, &b);
 	// draw_stack(a);
 	// ft_putstr("---\n");

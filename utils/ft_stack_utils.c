@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 14:02:20 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:03:07 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,3 +115,21 @@ int	is_sorted(t_stack_node *head)
 	}
 	return (1);
 }
+
+int	stack_len(t_stack_node *head)
+{
+	int	len;
+
+	len = 0;
+	while (head)
+	{
+		len++;
+		head = head->next;
+	}
+	return (len);
+}
+
+// void	set_position(t_stack_node *head)
+// {
+
+// }
