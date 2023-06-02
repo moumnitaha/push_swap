@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 23:22:50 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/02 12:25:10 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,18 +207,25 @@ void	sort_of_three(t_stack_node *head)
 
 void	sort_of_five(t_stack_node *a, t_stack_node *b)
 {
-	// t_stack_node	*big;
-	// t_stack_node	*small;
-	// t_stack_node	*last;
-	// t_stack_node	*tmp;
-
-	// big = big_node(a);
-	// small = small_node(a);
-	// last = ft_find_last_node(a);
-	// if (big->above_median)
-	// {
-	// 	tmp = NULL;
-	// 	b = NULL;
-	// }
-	printf("%d %d\n", a->value, b->value);
+	t_stack_node *big;
+	big = big_node(a);
+	if(big->above_median)
+	{
+		while (ft_find_last_node(a) != big)
+		{
+			pb(&b, &a);
+		}
+		pb(&b, &a);
+		if(!is_sorted(b) && stack_len(b) == 3)
+			sort_of_three(b);
+		draw_stack(b);
+		// if (is_sorted(b))
+		// 	sb(&b);
+		// rra(&a);
+		// while (b)
+		// {
+		// 	pa(&a, &b);
+		// }
+		// ra(&a);
+	}
 }
