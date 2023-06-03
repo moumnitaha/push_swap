@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/03 18:30:00 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/04 00:02:33 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,14 +214,13 @@ void	push_2_big_vals(t_stack_node **a, t_stack_node **b)
 	{
 		while (big->value != ft_find_last_node(*a)->value)
 			rra(a);
-		pb(b, a);
 	}
 	else
 	{
 		while (big->value != ft_find_last_node(*a)->value)
 			ra(a);
-		pb(b, a);
 	}
+	pb(b, a);
 }
 
 void	sort_of_five(t_stack_node **a, t_stack_node **b)

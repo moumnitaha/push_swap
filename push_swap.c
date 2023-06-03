@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/03 18:11:12 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/04 00:02:12 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,27 @@ int	main(int ac, char **av)
 		sa(&a);
 	if (stack_len(a) == 3)
 		sort_of_three(&a);
+	if (stack_len(a) == 4)
+	{
+		t_stack_node *big = big_node(a);
+		if (big->above_median)
+		{
+			while (big->value != ft_find_last_node(a)->value)
+				rra(&a);
+		}
+		else
+		{
+			while (big->value != ft_find_last_node(a)->value)
+				ra(&a);
+		}
+		pb(&b, &a);
+		sort_of_three(&a);
+		pa(&a, &b);
+	}
 	if (stack_len(a) == 5)
 		sort_of_five(&a, &b);
 	draw_stack(a);
+	if (is_sorted(a))
+		ft_printf(">>[[Sorted Array !]]<<\n");
 	return (0);
 }
