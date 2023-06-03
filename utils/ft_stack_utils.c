@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/02 12:25:10 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/03 18:30:00 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,40 +192,45 @@ t_stack_node	*small_node(t_stack_node *head)
 	return (small_node);
 }
 
-void	sort_of_three(t_stack_node *head)
+void	sort_of_three(t_stack_node **head)
 {
 	t_stack_node 	*big;
 
-	big = big_node(head);
-	if (head == big)
-		ra(&head);
-	if (head->next == big)
-		rra(&head);
-	if (head->next == small_node(head))
-		sa(&head);
+	big = big_node(*head);
+	if (*head == big)
+		ra(head);
+	if ((*head)->next == big)
+		rra(head);
+	if ((*head)->next == small_node(*head))
+		sa(head);
 }
 
-void	sort_of_five(t_stack_node *a, t_stack_node *b)
+void	push_2_big_vals(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node *big;
-	big = big_node(a);
-	if(big->above_median)
+
+	big = big_node(*a);
+	if (big->above_median)
 	{
-		while (ft_find_last_node(a) != big)
-		{
-			pb(&b, &a);
-		}
-		pb(&b, &a);
-		if(!is_sorted(b) && stack_len(b) == 3)
-			sort_of_three(b);
-		draw_stack(b);
-		// if (is_sorted(b))
-		// 	sb(&b);
-		// rra(&a);
-		// while (b)
-		// {
-		// 	pa(&a, &b);
-		// }
-		// ra(&a);
+		while (big->value != ft_find_last_node(*a)->value)
+			rra(a);
+		pb(b, a);
 	}
+	else
+	{
+		while (big->value != ft_find_last_node(*a)->value)
+			ra(a);
+		pb(b, a);
+	}
+}
+
+void	sort_of_five(t_stack_node **a, t_stack_node **b)
+{
+	
+	push_2_big_vals(a, b);
+	set_position(*a);
+	push_2_big_vals(a, b);
+	sort_of_three(a);
+	while (*b)
+		pa(a, b);
 }

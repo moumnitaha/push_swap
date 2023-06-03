@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/02 11:20:43 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/03 18:11:12 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,13 @@ int	main(int ac, char **av)
 		printf("[[Sorted Array]]\n");
 		exit(0);
 	}
-	// printf("len: [[ %d ]]\n", stack_len(a));
-	// printf("big: [[ %d ]]\n", big_node(a)->value);
-	// printf("sml: [[ %d ]]\n", small_node(a)->value);
 	draw_stack(a);
 	if (stack_len(a) == 2)
 		sa(&a);
 	if (stack_len(a) == 3)
-		sort_of_three(a);
+		sort_of_three(&a);
 	if (stack_len(a) == 5)
-	{
-		sort_of_five(a, b);
-	}
+		sort_of_five(&a, &b);
 	draw_stack(a);
-	draw_stack(b);
 	return (0);
 }
