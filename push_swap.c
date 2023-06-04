@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/04 00:02:12 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/04 18:43:06 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,28 @@ int	main(int ac, char **av)
 	}
 	set_position(a);
 	if (is_sorted(a))
-	{
-		printf("[[Sorted Array]]\n");
 		exit(0);
-	}
-	draw_stack(a);
 	if (stack_len(a) == 2)
 		sa(&a);
 	if (stack_len(a) == 3)
 		sort_of_three(&a);
 	if (stack_len(a) == 4)
-	{
-		t_stack_node *big = big_node(a);
-		if (big->above_median)
-		{
-			while (big->value != ft_find_last_node(a)->value)
-				rra(&a);
-		}
-		else
-		{
-			while (big->value != ft_find_last_node(a)->value)
-				ra(&a);
-		}
-		pb(&b, &a);
-		sort_of_three(&a);
-		pa(&a, &b);
-	}
+		sort_of_four(&a, &b);
 	if (stack_len(a) == 5)
 		sort_of_five(&a, &b);
+	if (stack_len(a) > 5)
+	{
+		while (stack_len(a) > 3)
+			pb(&b, &a);
+		sort_of_three(&a);
+		get_target_node(&a, &b);
+		get_target_node(&b, &a);
+		set_position(a);
+		set_position(b);
+		set_push_price(&a);
+		set_push_price(&b);
+	}
 	draw_stack(a);
-	if (is_sorted(a))
-		ft_printf(">>[[Sorted Array !]]<<\n");
+	draw_stack(b);
 	return (0);
 }

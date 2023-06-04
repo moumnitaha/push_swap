@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:39:51 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/01 14:07:22 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/04 11:22:07 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 void	ft_push(t_stack_node **dest, t_stack_node **src)
 {
 	t_stack_node	*node_to_push;
-	t_stack_node	*last_node;
+	t_stack_node	*top_node;
 
 	if (!(*src))
 		return ;
-	node_to_push = ft_find_last_node(*src);
+	node_to_push = *src;
 	if (!(*dest))
 	{
-		if (node_to_push->prev)
-			node_to_push->prev->next = NULL;
+		if (node_to_push->next)
+		{
+			node_to_push->next->prev = NULL;
+			*src = node_to_push->next;
+		}
 		else
 			*src = NULL;
 		*dest = node_to_push;
@@ -32,14 +35,17 @@ void	ft_push(t_stack_node **dest, t_stack_node **src)
 	}
 	else
 	{
-		if (node_to_push->prev)
-			node_to_push->prev->next = NULL;
+		if (node_to_push->next)
+		{
+			node_to_push->next->prev = NULL;
+			*src = node_to_push->next;
+		}
 		else
 			*src = NULL;
-		last_node = ft_find_last_node(*dest);
-		last_node->next = node_to_push;
-		last_node->next->prev = last_node;
-		last_node->next->next = NULL;
+		top_node = *dest;
+		top_node->prev = node_to_push;
+		node_to_push->next = top_node;
+		*dest = node_to_push;
 	}
 }
 

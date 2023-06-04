@@ -4,3 +4,5 @@ push_swap
 a.out
 *.o
 .tldr
+push_swap_tester
+checker_Mac
