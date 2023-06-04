@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/04 18:43:06 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/04 19:52:49 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,24 @@ int	main(int ac, char **av)
 		set_position(b);
 		set_push_price(&a);
 		set_push_price(&b);
+		t_stack_node *h = a;
+		t_stack_node *start;
+		start = NULL;
+		long max = INT_MAX;
+		while (h)
+		{
+			if (h->push_price + h->target_node->push_price < max)
+			{
+				max = h->push_price + h->target_node->push_price;
+				start = h;
+			}
+			h = h->next;
+		}
+		ft_printf("%d - %d", start->value, start->target_node->value);
+		while (a->value != start->value)
+		{
+			ra(a);
+		}
 	}
 	draw_stack(a);
 	draw_stack(b);
