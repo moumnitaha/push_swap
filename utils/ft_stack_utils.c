@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 14:50:01 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:13:46 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ void	ft_append_node(t_stack_node **stack_a, int nbr)
 	}
 }
 
+int	int_check(long nbr)
+{
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return (0);
+	return (1);
+}
+
 int	ft_error_syntax(char *str)
 {
 	int	i;
@@ -82,12 +89,6 @@ int	ft_error_repitition(char **av, int nbr)
 	return (1);
 }
 
-int	int_check(long nbr)
-{
-	if (nbr > INT_MAX || nbr < INT_MIN)
-		return (0);
-	return (1);
-}
 
 void	draw_stack(t_stack_node *head)
 {
@@ -101,7 +102,7 @@ void	draw_stack(t_stack_node *head)
 			printf("[[trgUp: (%d)]]\t", head->target_node_up->value);
 		if(head->target_node_down)
 			printf("[[trgDown: (%d)]]\t", head->target_node_down->value);
-		printf("istrg: (%d)\n", head->isTarget);
+		printf("istrg: (%d)\n", head->is_target);
 		head = head->next;
 	}
 	printf("-----\n");
@@ -142,7 +143,7 @@ void	set_position(t_stack_node *head)
 	i = 0;
 	while (head)
 	{
-		head->isTarget = 0;
+		head->is_target = 0;
 		head->current_pos = i;
 		if (i > mid)
 			head->above_median = 0;
@@ -255,6 +256,13 @@ void	sort_of_four(t_stack_node **a, t_stack_node **b)
 	pa(a, b);
 }
 
+int	pos(int num)
+{
+	if (num < 0)
+		return (-1 * num);
+	return (num);
+}
+
 void	get_target_node_up(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*current_a;
@@ -270,13 +278,13 @@ void	get_target_node_up(t_stack_node **a, t_stack_node **b)
 		{
 			if ((current_b)->value < current_a->value)
 			{
-				if ((current_b)->value - current_a->value > diff)
+				if (pos((current_b)->value - current_a->value) > diff)
 				{
-					diff = (current_b)->value - current_a->value;
-					if (!current_b->isTarget)
+					if (!current_b->is_target)
 					{
+						diff = pos((current_b)->value - current_a->value);
 						current_a->target_node_up = (current_b);
-						current_b->isTarget = 1;
+						current_b->is_target = 1;
 					}
 				}
 			}
@@ -293,20 +301,23 @@ void	get_target_node_down(t_stack_node **a, t_stack_node **b)
 
 	current_a = ft_find_last_node(*a);
 	
-		long diff = INT_MAX;
+		long long diff = LLONG_MAX;
 		current_b = *b;
 		current_a->target_node_down = NULL;
 		while (current_b)
 		{
 			if ((current_b)->value > current_a->value)
 			{
-				if ((current_b)->value - current_a->value < diff)
+				// printf(">>>>>[Bval: %d]\n", current_b->value);
+				// printf(">>>>>[diff: %d]\n", current_b->value - current_a->value);
+				if (pos((current_b)->value - current_a->value) < diff)
 				{
-					diff = (current_b)->value - current_a->value;
-					if (!current_b->isTarget)
+					// printf("[[%d]]\n", current_b->value);
+					if (!current_b->is_target)
 					{
+					diff = pos((current_b)->value - current_a->value);
 						current_a->target_node_down = (current_b);
-						current_b->isTarget = 1;
+						current_b->is_target = 1;
 					}
 				}
 			}
@@ -475,17 +486,22 @@ void main_sort(t_stack_node **a, t_stack_node **b)
 	get_target_node_up(a, b);
 	while (has_targt_up(a))
 	{
+		// draw_stack(*a);
 		rotate_stack_a(a, target_up_node(a));
 		rotate_stack_b(b,  target_up_node(a)->target_node_up);
 		pa(a, b);
 		fix_head(a, small_node(*a));
 		init_nodes(a, b);
 		get_target_node_up(a, b);
+		// draw_stack(*a);
 	}
 	init_nodes(a, b);
 	get_target_node_down(a, b);
 	while (has_targt_down(a))
 	{
+		// draw_stack(*a);
+		// printf("......Drawing B.....\n");
+		// draw_stack(*b);
 		rotate_stack_a(a, target_down_node(a));
 		rotate_stack_b(b, target_down_node(a)->target_node_down);
 		target_down_node(a)->target_node_down = NULL;

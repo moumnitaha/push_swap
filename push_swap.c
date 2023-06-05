@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 14:50:47 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:14:05 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 		free(tmp);
 		i++;
 	}
-	set_position(a);
+	// printf("HERE2\n");
 	if (is_sorted(a))
 		exit(0);
 	if (stack_len(a) == 2)
@@ -61,6 +61,14 @@ int	main(int ac, char **av)
 		sort_of_three(&a);
 		init_nodes(&a, &b);
 	}
+	// draw_stack(a);
+	// draw_stack(b);
+	// init_nodes(&a, &b);
+	// printf("HERE1\n");
+	// draw_stack(a);
 	main_sort(&a, &b);
+	// draw_stack(a);
+	// if(is_sorted(a))
+	// 	printf("{{{{Sorted Array }}}}\n");
 	return (0);
 }
