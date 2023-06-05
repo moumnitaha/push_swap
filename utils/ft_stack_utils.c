@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/04 18:50:49 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:03:09 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	draw_stack(t_stack_node *head)
 		printf("prc :(%d)\t", head->push_price);
 		if(head->target_node)
 			printf("[[trg: (%d)]]\t", head->target_node->value);
-		printf("mid: (%d)\n", head->above_median);
+		printf("istrg: (%d)\n", head->isTarget);
 		head = head->next;
 	}
 	printf("-----\n");
@@ -140,6 +140,7 @@ void	set_position(t_stack_node *head)
 	i = 0;
 	while (head)
 	{
+		head->isTarget = 0;
 		head->current_pos = i;
 		if (i > mid)
 			head->above_median = 0;
@@ -262,6 +263,7 @@ void	get_target_node(t_stack_node **a, t_stack_node **b)
 	{
 		long diff = INT_MIN;
 		current_b = *b;
+		current_a->target_node = NULL;
 		while (current_b)
 		{
 			if ((current_b)->value < current_a->value)
@@ -269,7 +271,11 @@ void	get_target_node(t_stack_node **a, t_stack_node **b)
 				if ((current_b)->value - current_a->value > diff)
 				{
 					diff = (current_b)->value - current_a->value;
-					current_a->target_node = (current_b);
+					if (!current_b->isTarget)
+					{
+						current_a->target_node = (current_b);
+						current_b->isTarget = 1;
+					}
 				}
 			}
 			current_b = current_b->next;
@@ -294,6 +300,99 @@ void	set_push_price(t_stack_node **stack)
 		else
 			head->push_price = s_len - head->current_pos;
 		head = head->next;
+	}
+}
+
+t_stack_node	*sheap_node(t_stack_node **a)
+{
+	t_stack_node *curr_a = *a;
+	t_stack_node *sheap_node;
+	sheap_node = NULL;
+	long max = INT_MAX;
+	while (curr_a)
+	{
+		// printf("\n[[[%d]]]\n\n\n", curr_a->value);
+		if (curr_a->target_node)
+		{
+			if (curr_a->value + curr_a->target_node->value < max)
+			{
+				max = curr_a->value + curr_a->target_node->value;
+				sheap_node = curr_a;
+			}
+		}
+		curr_a = curr_a->next;
+	}
+	return (sheap_node);
+}
+
+void	init_nodes(t_stack_node **a, t_stack_node **b)
+{
+	// get_target_node(b, a);
+	set_position(*a);
+	set_position(*b);
+	set_push_price(a);
+	set_push_price(b);
+	get_target_node(a, b);
+}
+
+void	rotate_stack_a(t_stack_node **a)
+{
+	t_stack_node *sheap;
+
+	sheap = sheap_node(a);
+	if (sheap->above_median)
+	{
+		while ((*a)->value != sheap->value)
+			ra(a);
+	}
+	else
+	{
+		while ((*a)->value != sheap->value)
+			rra(a);
+	}
+}
+
+void	rotate_stack_b(t_stack_node**a, t_stack_node **b)
+{
+	t_stack_node *sheap;
+
+	sheap = sheap_node(a)->target_node;
+	if (sheap->above_median)
+	{
+		while ((*b)->value != sheap->value)
+			rb(b);
+	}
+	else
+	{
+		while ((*b)->value != sheap->value)
+			rrb(b);
+	}
+}
+
+int		has_targt(t_stack_node **stack)
+{
+	int	target = 0;
+	t_stack_node *head = *stack;
+
+	while(head)
+	{
+		if(head->target_node)
+			target++;
+		head = head->next;
+	}
+	return (target);
+}
+
+void	fix_head(t_stack_node **stack, t_stack_node *head)
+{
+	t_stack_node *node = head;
+
+	while ((*stack)->value != node->value)
+	{
+		if (node->above_median)
+			ra(stack);
+		else
+			rra(stack);
 	}
 }
 

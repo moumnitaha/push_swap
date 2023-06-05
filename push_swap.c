@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/04 19:52:49 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:12:20 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,32 +59,24 @@ int	main(int ac, char **av)
 		while (stack_len(a) > 3)
 			pb(&b, &a);
 		sort_of_three(&a);
-		get_target_node(&a, &b);
-		get_target_node(&b, &a);
-		set_position(a);
-		set_position(b);
-		set_push_price(&a);
-		set_push_price(&b);
-		t_stack_node *h = a;
-		t_stack_node *start;
-		start = NULL;
-		long max = INT_MAX;
-		while (h)
-		{
-			if (h->push_price + h->target_node->push_price < max)
-			{
-				max = h->push_price + h->target_node->push_price;
-				start = h;
-			}
-			h = h->next;
-		}
-		ft_printf("%d - %d", start->value, start->target_node->value);
-		while (a->value != start->value)
-		{
-			ra(a);
-		}
+		init_nodes(&a, &b);
 	}
-	draw_stack(a);
-	draw_stack(b);
+	while (has_targt(&a))
+	{
+		rotate_stack_a(&a);
+		rotate_stack_b(&a, &b);
+		pa(&a, &b);
+		init_nodes(&a, &b);
+		fix_head(&a, small_node(a));
+	}
+	init_nodes(&a, &b);
+	fix_head(&b, big_node(b));
+	while (stack_len(b))
+	{
+		pa(&a,&b);
+	}
+	fix_head(&a, small_node(a));
+	// draw_stack(a);
+	// draw_stack(b);
 	return (0);
 }
