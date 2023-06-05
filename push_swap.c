@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 16:23:33 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:35:24 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 			pb(&b, &a);
 		sort_of_three(&a);
 		init_nodes(&a, &b);
-		main_sort(&a, &b);
 	}
+	main_sort(&a, &b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 16:13:46 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:35:12 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,7 @@ void	draw_stack(t_stack_node *head)
 	printf("-----\n");
 	while (head)
 	{
-		printf("|%d|\t", head->value);
-		printf("prc :(%d)\t", head->push_price);
-		if(head->target_node_up)
-			printf("[[trgUp: (%d)]]\t", head->target_node_up->value);
-		if(head->target_node_down)
-			printf("[[trgDown: (%d)]]\t", head->target_node_down->value);
-		printf("istrg: (%d)\n", head->is_target);
+		printf("|%d|\n", head->value);
 		head = head->next;
 	}
 	printf("-----\n");
