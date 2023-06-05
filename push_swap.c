@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 16:35:24 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 17:58:13 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int	main(int ac, char **av)
 		init_nodes(&a, &b);
 	}
 	main_sort(&a, &b);
+	// draw_stack(a);
 	return (0);
 }
