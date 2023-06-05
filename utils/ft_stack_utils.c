@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 12:03:09 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:56:29 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,10 @@ void	draw_stack(t_stack_node *head)
 	{
 		printf("|%d|\t", head->value);
 		printf("prc :(%d)\t", head->push_price);
-		if(head->target_node)
-			printf("[[trg: (%d)]]\t", head->target_node->value);
+		if(head->target_node_up)
+			printf("[[trgUp: (%d)]]\t", head->target_node_up->value);
+		if(head->target_node_down)
+			printf("[[trgDown: (%d)]]\t", head->target_node_down->value);
 		printf("istrg: (%d)\n", head->isTarget);
 		head = head->next;
 	}
@@ -253,7 +255,7 @@ void	sort_of_four(t_stack_node **a, t_stack_node **b)
 	pa(a, b);
 }
 
-void	get_target_node(t_stack_node **a, t_stack_node **b)
+void	get_target_node_up(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*current_a;
 	t_stack_node	*current_b;
@@ -263,7 +265,7 @@ void	get_target_node(t_stack_node **a, t_stack_node **b)
 	{
 		long diff = INT_MIN;
 		current_b = *b;
-		current_a->target_node = NULL;
+		current_a->target_node_up = NULL;
 		while (current_b)
 		{
 			if ((current_b)->value < current_a->value)
@@ -273,7 +275,38 @@ void	get_target_node(t_stack_node **a, t_stack_node **b)
 					diff = (current_b)->value - current_a->value;
 					if (!current_b->isTarget)
 					{
-						current_a->target_node = (current_b);
+						current_a->target_node_up = (current_b);
+						current_b->isTarget = 1;
+					}
+				}
+			}
+			current_b = current_b->next;
+		}
+		current_a = current_a->next;
+	}
+}
+
+void	get_target_node_down(t_stack_node **a, t_stack_node **b)
+{
+	t_stack_node	*current_a;
+	t_stack_node	*current_b;
+
+	current_a = *a;
+	while(current_a)
+	{
+		long diff = INT_MAX;
+		current_b = *b;
+		current_a->target_node_down = NULL;
+		while (current_b)
+		{
+			if ((current_b)->value > current_a->value)
+			{
+				if ((current_b)->value - current_a->value < diff)
+				{
+					diff = (current_b)->value - current_a->value;
+					if (!current_b->isTarget)
+					{
+						current_a->target_node_down = (current_b);
 						current_b->isTarget = 1;
 					}
 				}
@@ -312,11 +345,11 @@ t_stack_node	*sheap_node(t_stack_node **a)
 	while (curr_a)
 	{
 		// printf("\n[[[%d]]]\n\n\n", curr_a->value);
-		if (curr_a->target_node)
+		if (curr_a->target_node_up)
 		{
-			if (curr_a->value + curr_a->target_node->value < max)
+			if (curr_a->value + curr_a->target_node_up->value < max)
 			{
-				max = curr_a->value + curr_a->target_node->value;
+				max = curr_a->value + curr_a->target_node_up->value;
 				sheap_node = curr_a;
 			}
 		}
@@ -332,7 +365,7 @@ void	init_nodes(t_stack_node **a, t_stack_node **b)
 	set_position(*b);
 	set_push_price(a);
 	set_push_price(b);
-	get_target_node(a, b);
+	
 }
 
 void	rotate_stack_a(t_stack_node **a)
@@ -356,7 +389,7 @@ void	rotate_stack_b(t_stack_node**a, t_stack_node **b)
 {
 	t_stack_node *sheap;
 
-	sheap = sheap_node(a)->target_node;
+	sheap = sheap_node(a)->target_node_up;
 	if (sheap->above_median)
 	{
 		while ((*b)->value != sheap->value)
@@ -369,14 +402,28 @@ void	rotate_stack_b(t_stack_node**a, t_stack_node **b)
 	}
 }
 
-int		has_targt(t_stack_node **stack)
+int		has_targt_up(t_stack_node **stack)
 {
 	int	target = 0;
 	t_stack_node *head = *stack;
 
 	while(head)
 	{
-		if(head->target_node)
+		if(head->target_node_up)
+			target++;
+		head = head->next;
+	}
+	return (target);
+}
+
+int		has_targt_down(t_stack_node **stack)
+{
+	int	target = 0;
+	t_stack_node *head = *stack;
+
+	while(head)
+	{
+		if(head->target_node_down)
 			target++;
 		head = head->next;
 	}
@@ -396,83 +443,34 @@ void	fix_head(t_stack_node **stack, t_stack_node *head)
 	}
 }
 
-/////////////////////
+void main_sort(t_stack_node **a, t_stack_node **b)
+{
+	init_nodes(a, b);
+	get_target_node_up(a, b);
+	while (has_targt_up(a))
+	{
+		draw_stack(*a);
+		rotate_stack_a(a);
+		rotate_stack_b(a, b);
+		pa(a, b);
+		fix_head(a, small_node(*a));
+		init_nodes(a, b);
+		get_target_node_up(a, b);
+	}
+	init_nodes(a, b);
+	get_target_node_down(a, b);
+	printf("[[[[[[[[[1]]]]]]]]]\n");
+	draw_stack(*a);
+	printf("[[[[[[[[[2]]]]]]]]]\n");
+	while (has_targt_down(a))
+	{
+		draw_stack(*a);
+		rotate_stack_a(a);
+		rotate_stack_b(a, b);
+		pa(a, b);
+		fix_head(a, small_node(*a));
+		init_nodes(a, b);
+		get_target_node_down(a, b);
+	}
+}
 
-// void	set_target_node(t_stack_node *a, t_stack_node *b)
-// {
-// 	t_stack_node	*current_a;
-// 	t_stack_node	*target_node;
-// 	long			best_match_index;
-
-// 	while (b)
-// 	{
-// 		best_match_index = LONG_MAX;
-// 		current_a = a;
-// 		while (current_a)
-// 		{
-// 			if (current_a->value > b->value
-// 				&& current_a->value < best_match_index)
-// 			{
-// 				best_match_index = current_a->value;
-// 				target_node = current_a;
-// 			}
-// 			current_a = current_a->next;
-// 		}
-// 		if (LONG_MAX == best_match_index)
-// 			b->target_node = find_smallest(a);
-// 		else
-// 			b->target_node = target_node;
-// 		b = b->next;
-// 	}
-// }
-
-// void	set_price(t_stack_node *a, t_stack_node *b)
-// {
-// 	int	len_a;
-// 	int	len_b;
-
-// 	len_a = stack_len(a);
-// 	len_b = stack_len(b);
-// 	while (b)
-// 	{
-// 		b->push_price = b->current_pos;
-// 		if (!(b->above_median))
-// 			b->push_price = len_b - (b->current_pos);
-// 		if (b->target_node->above_median)
-// 			b->push_price += b->target_node->current_pos;
-// 		else
-// 			b->push_price += len_a - (b->target_node->current_pos);
-// 		b = b->next;
-// 	}
-// }
-
-// void	set_cheapest(t_stack_node *b)
-// {
-// 	long			best_match_value;
-// 	t_stack_node	*best_match_node;
-
-// 	if (NULL == b)
-// 		return ;
-// 	best_match_value = LONG_MAX;
-// 	while (b)
-// 	{
-// 		if (b->push_price < best_match_value)
-// 		{
-// 			best_match_value = b->push_price;
-// 			best_match_node = b;
-// 		}
-// 		b = b->next;
-// 	}
-// 	best_match_node->cheapest = true;
-// }
-
-// void	init_nodes(t_stack_node *a, t_stack_node *b)
-// {
-// 	set_position(a);
-// 	set_position(b);
-// 	set_target_node(a, b);
-// 	set_price(a, b);
-// 	set_cheapest(b);
-// }
-
-//////////////

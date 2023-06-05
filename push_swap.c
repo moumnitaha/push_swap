@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 12:12:20 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:43:38 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,21 @@ int	main(int ac, char **av)
 		sort_of_three(&a);
 		init_nodes(&a, &b);
 	}
-	while (has_targt(&a))
-	{
-		rotate_stack_a(&a);
-		rotate_stack_b(&a, &b);
-		pa(&a, &b);
-		init_nodes(&a, &b);
-		fix_head(&a, small_node(a));
-	}
-	init_nodes(&a, &b);
-	fix_head(&b, big_node(b));
-	while (stack_len(b))
-	{
-		pa(&a,&b);
-	}
-	fix_head(&a, small_node(a));
+	main_sort(&a, &b);
+	printf("~~END~~\n");
+	draw_stack(a);
+	draw_stack(b);
+	// fix_head(&b, big_node(b));
+	// while (stack_len(b))
+	// {
+	// 	pa(&a,&b);
+	// 	init_nodes(&a, &b);
+	// 	printf("~~A~~\n");
+	// 	draw_stack(a);
+	// 	printf("~~B~~\n");
+	// 	draw_stack(b);
+	// }
+	// fix_head(&a, small_node(a));
 	// draw_stack(a);
-	// draw_stack(b);
 	return (0);
 }
