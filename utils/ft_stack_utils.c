@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 12:56:29 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 14:50:01 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,9 +291,8 @@ void	get_target_node_down(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*current_a;
 	t_stack_node	*current_b;
 
-	current_a = *a;
-	while(current_a)
-	{
+	current_a = ft_find_last_node(*a);
+	
 		long diff = INT_MAX;
 		current_b = *b;
 		current_a->target_node_down = NULL;
@@ -313,8 +312,6 @@ void	get_target_node_down(t_stack_node **a, t_stack_node **b)
 			}
 			current_b = current_b->next;
 		}
-		current_a = current_a->next;
-	}
 }
 
 void	set_push_price(t_stack_node **stack)
@@ -344,7 +341,6 @@ t_stack_node	*sheap_node(t_stack_node **a)
 	long max = INT_MAX;
 	while (curr_a)
 	{
-		// printf("\n[[[%d]]]\n\n\n", curr_a->value);
 		if (curr_a->target_node_up)
 		{
 			if (curr_a->value + curr_a->target_node_up->value < max)
@@ -358,6 +354,42 @@ t_stack_node	*sheap_node(t_stack_node **a)
 	return (sheap_node);
 }
 
+t_stack_node	*target_up_node(t_stack_node **stack)
+{
+	t_stack_node *head;
+	head = *stack;
+	t_stack_node *node = NULL;
+
+	while (head)
+	{
+		if (head->target_node_up)
+		{
+			node = head;
+			break;
+		}
+		head = head->next;
+	}
+	return (node);
+}
+
+t_stack_node	*target_down_node(t_stack_node **stack)
+{
+	t_stack_node *head;
+	head = *stack;
+	t_stack_node *node = NULL;
+
+	while (head)
+	{
+		if (head->target_node_down)
+		{
+			node = head;
+			break;
+		}
+		head = head->next;
+	}
+	return (node);
+}
+
 void	init_nodes(t_stack_node **a, t_stack_node **b)
 {
 	// get_target_node(b, a);
@@ -368,36 +400,30 @@ void	init_nodes(t_stack_node **a, t_stack_node **b)
 	
 }
 
-void	rotate_stack_a(t_stack_node **a)
+void	rotate_stack_a(t_stack_node **a, t_stack_node *node)
 {
-	t_stack_node *sheap;
-
-	sheap = sheap_node(a);
-	if (sheap->above_median)
+	if (node->above_median)
 	{
-		while ((*a)->value != sheap->value)
+		while ((*a)->value != node->value)
 			ra(a);
 	}
 	else
 	{
-		while ((*a)->value != sheap->value)
+		while ((*a)->value != node->value)
 			rra(a);
 	}
 }
 
-void	rotate_stack_b(t_stack_node**a, t_stack_node **b)
+void	rotate_stack_b(t_stack_node **b, t_stack_node *node)
 {
-	t_stack_node *sheap;
-
-	sheap = sheap_node(a)->target_node_up;
-	if (sheap->above_median)
+	if (node->above_median)
 	{
-		while ((*b)->value != sheap->value)
+		while ((*b)->value != node->value)
 			rb(b);
 	}
 	else
 	{
-		while ((*b)->value != sheap->value)
+		while ((*b)->value != node->value)
 			rrb(b);
 	}
 }
@@ -449,9 +475,8 @@ void main_sort(t_stack_node **a, t_stack_node **b)
 	get_target_node_up(a, b);
 	while (has_targt_up(a))
 	{
-		draw_stack(*a);
-		rotate_stack_a(a);
-		rotate_stack_b(a, b);
+		rotate_stack_a(a, target_up_node(a));
+		rotate_stack_b(b,  target_up_node(a)->target_node_up);
 		pa(a, b);
 		fix_head(a, small_node(*a));
 		init_nodes(a, b);
@@ -459,15 +484,13 @@ void main_sort(t_stack_node **a, t_stack_node **b)
 	}
 	init_nodes(a, b);
 	get_target_node_down(a, b);
-	printf("[[[[[[[[[1]]]]]]]]]\n");
-	draw_stack(*a);
-	printf("[[[[[[[[[2]]]]]]]]]\n");
 	while (has_targt_down(a))
 	{
-		draw_stack(*a);
-		rotate_stack_a(a);
-		rotate_stack_b(a, b);
+		rotate_stack_a(a, target_down_node(a));
+		rotate_stack_b(b, target_down_node(a)->target_node_down);
+		target_down_node(a)->target_node_down = NULL;
 		pa(a, b);
+		sa(a);
 		fix_head(a, small_node(*a));
 		init_nodes(a, b);
 		get_target_node_down(a, b);

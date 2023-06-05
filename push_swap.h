@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/05 12:47:54 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/05 14:23:31 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	get_target_node_up(t_stack_node **a, t_stack_node **b);
 void	set_push_price(t_stack_node **stack);
 t_stack_node	*sheap_node(t_stack_node **a);
 void	init_nodes(t_stack_node **a, t_stack_node **b);
-void	rotate_stack_a(t_stack_node **a);
-void	rotate_stack_b(t_stack_node**a, t_stack_node **b);
+void	rotate_stack_a(t_stack_node **a, t_stack_node *node);
+void	rotate_stack_b(t_stack_node **b, t_stack_node *node);
 int		has_targt(t_stack_node **stack);
 void	fix_head(t_stack_node **stack, t_stack_node *head);
 void main_sort(t_stack_node **a, t_stack_node **b);
