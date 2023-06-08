@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 17:39:10 by tmoumni           #+#    #+#              #
-#    Updated: 2023/06/08 14:59:34 by tmoumni          ###   ########.fr        #
+#    Updated: 2023/06/08 15:02:24 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ all: $(NAME)
 $(NAME): $(SRCS) $(OBJS) $(HEADER)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-bonus: $(B_OBJS) $(B_SRCS)
+bonus: $(NAME) $(B_OBJS) $(B_SRCS)
 	@$(CC) $(CFLAGS) $(B_OBJS) -o $(CHECKER)
 	@echo "\n$(GREEN)[[ checker created successfully ]]$(END)\n"
 
