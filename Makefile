@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 17:39:10 by tmoumni           #+#    #+#              #
-#    Updated: 2023/06/08 09:33:04 by tmoumni          ###   ########.fr        #
+#    Updated: 2023/06/08 10:19:36 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ END = \033[0m
 
 SRCS = ft_printf/ft_printf.c ft_printf/ft_putnbr.c ft_printf/ft_putchar.c ft_printf/ft_putstr.c\
 	ft_printf/ft_puthex.c ft_printf/ft_putunbr.c ft_printf/ft_putptr.c push_swap.c\
-	libft/ft_split.c libft/ft_atoi.c libft/ft_isalnum.c libft/ft_isdigit.c libft/ft_isalpha.c\
+	utils/ft_split.c utils/ft_atoi.c utils/ft_isalnum.c utils/ft_isdigit.c utils/ft_isalpha.c\
 	utils/ft_stack_init.c utils/ft_stack_utils.c utils/ft_atol.c utils/ft_push.c utils/ft_swap.c\
 	utils/ft_rotate.c utils/ft_rev_rotate.c utils/ft_taget_nodes.c utils/ft_node_utils.c\
 	utils/ft_main_sort.c utils/ft_error_checks.c
