@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:39:51 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 08:53:38 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:17:26 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,16 @@ void	ft_push(t_stack_node **dest, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b)
 {
+	if (!(*b))
+		return ;
 	ft_push(a, b);
 	ft_putstr("pa\n");
 }
 
 void	pb(t_stack_node **b, t_stack_node **a)
 {
+	if (!(*a))
+		return ;
 	ft_push(b, a);
 	ft_putstr("pb\n");
 }

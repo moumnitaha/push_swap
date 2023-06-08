@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 15:12:35 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/11/17 17:55:02 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/05/26 15:20:46 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/08 10:39:13 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static int	count_digits(const char *str)
 	return (count);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoll(const char *str)
 {
-	int		sign;
-	int		index;
-	long	result;
+	int			sign;
+	int			index;
+	long long	result;
 
 	index = 0;
 	sign = 1;

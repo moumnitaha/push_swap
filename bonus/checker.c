@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 11:34:23 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/08 12:52:20 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_stack_init(t_stack_node **a, char *arg)
+int	main(int ac, char **av)
 {
-	long			nbr;
+	char			*line;
+	int				fd;
+	t_stack_node	*a;
 
-	nbr = ft_atoll(arg);
-	if (!int_max_check(nbr))
-	{
-		ft_printf("Error\n");
+	fd = STDIN_FILENO;
+	a = NULL;
+	line = get_next_line(fd);
+	if (!line)
 		exit (1);
-	}
-	if (ft_error_repitition(a, nbr))
+	split_args(ac, av, &a);
+	while (line)
 	{
-		ft_printf("Error\n");
-		exit (1);
+		printf("<%s", line);
+		line = get_next_line(fd);
 	}
-	ft_append_node(a, nbr);
+	return (0);
 }

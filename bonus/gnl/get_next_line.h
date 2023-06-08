@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 11:34:23 by tmoumni          ###   ########.fr       */
+/*   Created: 2022/11/25 10:11:42 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/08 12:00:17 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_stack_init(t_stack_node **a, char *arg)
-{
-	long			nbr;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4
+# endif
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <limits.h>
 
-	nbr = ft_atoll(arg);
-	if (!int_max_check(nbr))
-	{
-		ft_printf("Error\n");
-		exit (1);
-	}
-	if (ft_error_repitition(a, nbr))
-	{
-		ft_printf("Error\n");
-		exit (1);
-	}
-	ft_append_node(a, nbr);
-}
+char	*get_next_line(int fd);
+int		ft_strlen(const char *str);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:21:21 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 10:03:18 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:25:55 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	rotate_stack_a(t_stack_node **a, t_stack_node *node)
 {
+	if (!stack_len(*a))
+		return ;
 	if (node->above_median)
 	{
 		while ((*a)->value != node->value)
@@ -28,6 +30,8 @@ void	rotate_stack_a(t_stack_node **a, t_stack_node *node)
 
 void	rotate_stack_b(t_stack_node **b, t_stack_node *node)
 {
+	if (!stack_len(*b))
+		return ;
 	if (node->above_median)
 	{
 		while ((*b)->value != node->value)
@@ -45,6 +49,8 @@ int	has_targt_up(t_stack_node **stack)
 	int				target;
 	t_stack_node	*head;
 
+	if (!stack_len(*stack))
+		return (0);
 	target = 0;
 	head = *stack;
 	while (head)
@@ -61,6 +67,8 @@ int	has_targt_down(t_stack_node **stack)
 	int				target;
 	t_stack_node	*head;
 
+	if (!stack_len(*stack))
+		return (0);
 	head = *stack;
 	target = 0;
 	while (head)

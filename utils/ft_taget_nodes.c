@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:09:23 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 09:25:23 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:25:45 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	get_target_node_down(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*current_b;
 	long long		diff;
 
+	if (!stack_len(*a))
+		return ;
 	diff = LLONG_MAX;
 	current_a = ft_last_node(*a);
 	current_b = *b;

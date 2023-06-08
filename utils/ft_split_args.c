@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_split_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 11:34:23 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/06/08 12:31:51 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/08 12:32:19 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_stack_init(t_stack_node **a, char *arg)
+void	split_args(int ac, char **av, t_stack_node **a)
 {
-	long			nbr;
+	char			**splited;
+	char			**tmp;
+	int				i;
 
-	nbr = ft_atoll(arg);
-	if (!int_max_check(nbr))
+	i = 1;
+	while (i < ac)
 	{
-		ft_printf("Error\n");
-		exit (1);
+		splited = ft_split(av[i], ' ');
+		tmp = splited;
+		while (*splited)
+		{
+			if (ft_error_syntax(*splited))
+			{
+				ft_printf("Error\n");
+				exit(1);
+			}
+			ft_stack_init(a, *splited);
+			free(*splited);
+			splited++;
+		}
+		free(tmp);
+		i++;
 	}
-	if (ft_error_repitition(a, nbr))
-	{
-		ft_printf("Error\n");
-		exit (1);
-	}
-	ft_append_node(a, nbr);
 }

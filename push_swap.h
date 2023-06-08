@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 09:45:12 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 12:47:14 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <stdbool.h>
 # include <limits.h> 
 # include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "utils/libft.h"
+# include "bonus/gnl/get_next_line.h"
 
 typedef struct s_stack_node {
 	int					value;
@@ -34,7 +35,9 @@ t_stack_node	*big_node(t_stack_node *head);
 t_stack_node	*small_node(t_stack_node *head);
 t_stack_node	*target_up_node(t_stack_node **stack);
 t_stack_node	*target_down_node(t_stack_node **stack);
+char			*get_next_line(int fd);
 void			get_target_node_down(t_stack_node **a, t_stack_node **b);
+void			split_args(int ac, char **av, t_stack_node **a);
 void			get_target_node_up(t_stack_node **a, t_stack_node **b);
 void			init_nodes(t_stack_node **a, t_stack_node **b);
 void			rotate_stack_a(t_stack_node **a, t_stack_node *node);
@@ -48,7 +51,7 @@ int				ft_error_repitition(t_stack_node **a, int nbr);
 int				int_max_check(long nbr);
 int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
-long			ft_atol(const char *str);
+long			ft_atoll(const char *str);
 void			set_position(t_stack_node *head);
 void			ft_push(t_stack_node **src, t_stack_node **dest);
 void			pa(t_stack_node **a, t_stack_node **b);
