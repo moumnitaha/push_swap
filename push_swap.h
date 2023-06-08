@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 09:25:39 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 09:45:12 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void			ft_append_node(t_stack_node **stack, int nbr);
 void			ft_stack_init(t_stack_node **a, char *arg);
 void			sort_of_three(t_stack_node **head);
 int				ft_error_syntax(char *str);
-int				ft_error_repitition(char **av, int nbr);
+int				ft_error_repitition(t_stack_node **a, int nbr);
 int				int_max_check(long nbr);
 int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);

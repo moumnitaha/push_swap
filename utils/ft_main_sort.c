@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:21:21 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 09:26:05 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 10:03:18 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ int	has_targt_down(t_stack_node **stack)
 
 void	main_sort(t_stack_node **a, t_stack_node **b)
 {
+	while (stack_len(*a) > 3)
+		pb(b, a);
+	sort_of_three(a);
 	init_nodes(a, b);
 	get_target_node_up(a, b);
 	while (has_targt_up(a))

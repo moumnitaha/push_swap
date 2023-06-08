@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:31:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 09:32:40 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 09:50:48 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,16 @@ int	is_sorted(t_stack_node *head)
 	return (1);
 }
 
-int	ft_error_repitition(char **av, int nbr)
+int	ft_error_repitition(t_stack_node **a, int nbr)
 {
-	int	i;
-	int	count;
+	t_stack_node	*curr_a;
 
-	i = 0;
-	count = 0;
-	while (av[i])
+	curr_a = *a;
+	while (curr_a)
 	{
-		if (ft_atoi(av[i]) == nbr)
-			count++;
-		i++;
+		if (curr_a->value == nbr)
+			return (1);
+		curr_a = curr_a->next;
 	}
-	if (count > 1)
-		return (0);
-	return (1);
+	return (0);
 }
