@@ -6,22 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 12:48:38 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:00:16 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	draw_stack(t_stack_node *head)
-{
-	ft_printf("-----\n");
-	while (head)
-	{
-		ft_printf("|%d|\n", head->value);
-		head = head->next;
-	}
-	ft_printf("-----\n");
-}
 
 void	set_position(t_stack_node *head)
 {

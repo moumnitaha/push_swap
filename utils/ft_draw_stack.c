@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_draw_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 12:52:20 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/06/08 12:59:55 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/08 13:00:21 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	main(int ac, char **av)
+void	draw_stack(t_stack_node *head)
 {
-	char			*line;
-	int				fd;
-	t_stack_node	*a;
-
-	fd = STDIN_FILENO;
-	a = NULL;
-	line = get_next_line(fd);
-	if (!line)
-		exit (1);
-	split_args(ac, av, &a);
-	while (line)
+	ft_printf("-----\n");
+	while (head)
 	{
-		printf("<%s", line);
-		line = get_next_line(fd);
+		ft_printf("|%d|\n", head->value);
+		head = head->next;
 	}
-	return (0);
+	ft_printf("-----\n");
 }
