@@ -1,6 +1,7 @@
 .vscode
 git.sh
 push_swap
+checker
 a.out
 *.o
 .tldr
