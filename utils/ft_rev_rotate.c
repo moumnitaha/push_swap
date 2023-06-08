@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 19:05:30 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/05/30 14:49:10 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:38:51 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_rev_rotate(t_stack_node **head)
 
 	if (!head || !(*head) || !(*head)->next)
 		return ;
-	last_node = ft_find_last_node(*head);
+	last_node = ft_last_node(*head);
 	last_node->prev->next = NULL;
 	last_node->next = *head;
 	last_node->prev = NULL;
