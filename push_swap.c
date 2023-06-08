@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 12:32:13 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 16:00:59 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
-	{
-		ft_printf("Error!\nUsage: ./push_swap <Array>\n");
 		exit (1);
-	}
 	split_args(ac, av, &a);
 	if (is_sorted(a))
 		exit(0);

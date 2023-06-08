@@ -6,11 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:31:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 14:48:38 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 16:07:50 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../bonus_checker.h"
 
 int	int_max_check(long nbr)
 {

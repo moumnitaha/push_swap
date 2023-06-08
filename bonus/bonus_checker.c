@@ -6,11 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 15:00:59 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 16:07:07 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "bonus_checker.h"
 
 void	parse_commands(char *line, t_stack_node **a, t_stack_node **b)
 {
@@ -42,14 +42,14 @@ int	main(int ac, char **av)
 {
 	char			*line;
 	int				len;
-	int				fd;
 	t_stack_node	*a;
 	t_stack_node	*b;
 
-	fd = STDIN_FILENO;
 	a = NULL;
 	b = NULL;
-	line = get_next_line(fd);
+	if (ac == 1 || (ac == 2 && !av[1][0]))
+		exit (1);
+	line = get_next_line(STDIN_FILENO);
 	if (!line)
 		exit (1);
 	split_args(ac, av, &a);
@@ -57,7 +57,7 @@ int	main(int ac, char **av)
 	while (line)
 	{
 		parse_commands(line, &a, &b);
-		line = get_next_line(fd);
+		line = get_next_line(STDIN_FILENO);
 	}
 	if (is_sorted(a) && len == stack_len(a))
 		ft_printf("OK\n");

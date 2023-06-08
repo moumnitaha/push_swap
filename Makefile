@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 17:39:10 by tmoumni           #+#    #+#              #
-#    Updated: 2023/06/08 15:02:24 by tmoumni          ###   ########.fr        #
+#    Updated: 2023/06/08 16:18:46 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,3 +59,5 @@ fclean:
 	@rm -rf $(OBJS) $(B_OBJS) $(NAME) $(CHECKER)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re

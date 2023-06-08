@@ -6,11 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:04:31 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 14:48:47 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 16:08:03 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../bonus_checker.h"
 
 void	ft_append_node(t_stack_node **stack_a, int nbr)
 {

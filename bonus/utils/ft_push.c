@@ -6,11 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:39:51 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 14:52:51 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 16:08:11 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../bonus_checker.h"
 
 void	fix_src(t_stack_node *node_to_push, t_stack_node **src)
 {
