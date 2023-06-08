@@ -6,11 +6,37 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 13:21:54 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/08 15:00:59 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	parse_commands(char *line, t_stack_node **a, t_stack_node **b)
+{
+	if (!ft_strncmp(line, "sa\n", 3))
+		sa(a);
+	if (!ft_strncmp(line, "sb\n", 3))
+		sb(b);
+	if (!ft_strncmp(line, "ss\n", 3))
+		ss(a, b);
+	if (!ft_strncmp(line, "pa\n", 3))
+		pa(a, b);
+	if (!ft_strncmp(line, "pb\n", 3))
+		pb(b, a);
+	if (!ft_strncmp(line, "ra\n", 3))
+		ra(a);
+	if (!ft_strncmp(line, "rb\n", 3))
+		rb(b);
+	if (!ft_strncmp(line, "rr\n", 3))
+		rr(a, b);
+	if (!ft_strncmp(line, "rra\n", 4))
+		rra(a);
+	if (!ft_strncmp(line, "rrb\n", 4))
+		rrb(b);
+	if (!ft_strncmp(line, "rrr\n", 4))
+		rrr(a, b);
+}
 
 int	main(int ac, char **av)
 {
@@ -30,28 +56,7 @@ int	main(int ac, char **av)
 	len = stack_len(a);
 	while (line)
 	{
-		if (!strcmp(line, "sa\n"))
-			sa(&a);
-		if (!strcmp(line, "sb\n"))
-			sb(&b);
-		if (!strcmp(line, "ss\n"))
-			ss(&a, &b);
-		if (!strcmp(line, "pa\n"))
-			pa(&a, &b);
-		if (!strcmp(line, "pb\n"))
-			pb(&b, &a);
-		if (!strcmp(line, "ra\n"))
-			ra(&a);
-		if (!strcmp(line, "rb\n"))
-			rb(&b);
-		if (!strcmp(line, "rr\n"))
-			rr(&a, &b);
-		if (!strcmp(line, "rra\n"))
-			rra(&a);
-		if (!strcmp(line, "rrb\n"))
-			rrb(&b);
-		if (!strcmp(line, "rrr\n"))
-			rrr(&a, &b);
+		parse_commands(line, &a, &b);
 		line = get_next_line(fd);
 	}
 	if (is_sorted(a) && len == stack_len(a))
