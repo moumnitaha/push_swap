@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 13:00:16 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/10 14:17:06 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,15 @@ void	set_position(t_stack_node *head)
 	{
 		head->current_pos = i;
 		if (i > mid)
+		{
+			head->target_node_up = NULL;
 			head->above_median = 0;
+		}
 		else
+		{
+			head->target_node_down = NULL;
 			head->above_median = 1;
+		}
 		head = head->next;
 		i++;
 	}
