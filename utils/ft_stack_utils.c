@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/10 23:16:02 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 00:26:31 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,41 +73,5 @@ void	index_stack(t_stack_node **a)
 			j = j->next;
 		}
 		i = i->next;
-	}
-}
-
-void	big_sort(t_stack_node **a, t_stack_node **b)
-{
-	int i = 1;
-	int j = 15;
-	if (stack_len(*a) > 250)
-		j = 25;
-	while (stack_len(*a))
-	{
-		if ((*a)->index < i)
-		{
-			pb(b, a);
-			rb(b);
-			i++;
-		}
-		else if ((*a)->index < i + j)
-		{
-			pb(b, a);
-			i++;
-		}
-		else
-			ra(a);
-		if (stack_len(*b) > 1)
-		{
-			if ((*b)->index < (*b)->next->index)
-				sb(b);
-		}
-		// draw_stack(*b);
-	}
-	while (stack_len(*b))
-	{
-		set_position(*b);
-		rotate_stack_b(b, big_node(*b));
-		pa(a, b);
 	}
 }
