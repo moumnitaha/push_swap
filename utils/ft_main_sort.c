@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:21:21 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 11:25:55 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/10 23:18:48 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,70 +41,5 @@ void	rotate_stack_b(t_stack_node **b, t_stack_node *node)
 	{
 		while ((*b)->value != node->value)
 			rrb(b);
-	}
-}
-
-int	has_targt_up(t_stack_node **stack)
-{
-	int				target;
-	t_stack_node	*head;
-
-	if (!stack_len(*stack))
-		return (0);
-	target = 0;
-	head = *stack;
-	while (head)
-	{
-		if (head->target_node_up)
-			target++;
-		head = head->next;
-	}
-	return (target);
-}
-
-int	has_targt_down(t_stack_node **stack)
-{
-	int				target;
-	t_stack_node	*head;
-
-	if (!stack_len(*stack))
-		return (0);
-	head = *stack;
-	target = 0;
-	while (head)
-	{
-		if (head->target_node_down)
-			target++;
-		head = head->next;
-	}
-	return (target);
-}
-
-void	main_sort(t_stack_node **a, t_stack_node **b)
-{
-	while (stack_len(*a) > 3)
-		pb(b, a);
-	sort_of_three(a);
-	init_nodes(a, b);
-	get_target_node_up(a, b);
-	while (has_targt_up(a))
-	{
-		rotate_stack_a(a, target_up_node(a));
-		rotate_stack_b(b, target_up_node(a)->target_node_up);
-		pa(a, b);
-		init_nodes(a, b);
-		get_target_node_up(a, b);
-	}
-	rotate_stack_a(a, small_node(*a));
-	init_nodes(a, b);
-	get_target_node_down(a, b);
-	while (has_targt_down(a))
-	{
-		rotate_stack_b(b, target_down_node(a)->target_node_down);
-		target_down_node(a)->target_node_down = NULL;
-		pa(a, b);
-		ra(a);
-		init_nodes(a, b);
-		get_target_node_down(a, b);
 	}
 }

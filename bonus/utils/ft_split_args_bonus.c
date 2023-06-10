@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_stack.c                                    :+:      :+:    :+:   */
+/*   ft_split_args_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 12:59:55 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 16:07:46 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/06/08 12:31:51 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/10 23:34:03 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bonus_checker.h"
+#include "../checker_bonus.h"
 
-void	draw_stack(t_stack_node *head)
+void	split_args(int ac, char **av, t_stack_node **a)
 {
-	ft_printf("-----\n");
-	while (head)
+	char			**splited;
+	char			**tmp;
+	int				i;
+
+	i = 1;
+	while (i < ac)
 	{
-		ft_printf("|%d|\n", head->value);
-		head = head->next;
+		splited = ft_split(av[i], ' ');
+		tmp = splited;
+		while (*splited)
+		{
+			if (ft_error_syntax(*splited))
+			{
+				write(2, "Error\n", 6);
+				exit(1);
+			}
+			ft_stack_init(a, *splited);
+			free(*splited);
+			splited++;
+		}
+		free(tmp);
+		i++;
 	}
-	ft_printf("-----\n");
 }

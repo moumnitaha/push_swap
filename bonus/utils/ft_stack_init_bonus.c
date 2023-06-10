@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_stack_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 11:40:11 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/11/12 10:42:26 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/10 23:34:11 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../checker_bonus.h"
 
-int	ft_isalnum(int c)
+void	ft_stack_init(t_stack_node **a, char *arg)
 {
-	unsigned char	d;
+	long			nbr;
 
-	d = (unsigned char)c;
-	if (ft_isdigit(d) || ft_isalpha(d))
-		return (1);
-	return (0);
+	nbr = ft_atoll(arg);
+	if (!int_max_check(nbr))
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+	if (ft_error_repitition(a, nbr))
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+	ft_append_node(a, nbr);
 }

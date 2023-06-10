@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 16:00:59 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/10 23:24:33 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int ac, char **av)
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		exit (1);
 	split_args(ac, av, &a);
+	init_nodes(&a, &b);
+	index_stack(&a);
 	if (is_sorted(a))
 		exit(0);
 	else
@@ -31,7 +33,7 @@ int	main(int ac, char **av)
 		if (stack_len(a) == 3)
 			sort_of_three(&a);
 		if (stack_len(a) > 3)
-			main_sort(&a, &b);
+			big_sort(&a, &b);
 	}
 	return (0);
 }

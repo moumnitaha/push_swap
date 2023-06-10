@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_checker.h                                    :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 16:04:17 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 16:04:48 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/06/10 23:22:37 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/10 23:23:57 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BONUS_CHECKER_H
-# define BONUS_CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>

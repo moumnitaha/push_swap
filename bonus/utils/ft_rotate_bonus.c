@@ -1,52 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_rotate_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 18:12:24 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 16:08:35 by tmoumni          ###   ########.fr       */
+/*   Created: 2023/05/29 17:24:48 by tmoumni           #+#    #+#             */
+/*   Updated: 2023/06/10 23:33:59 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bonus_checker.h"
+#include "../checker_bonus.h"
 
-void	ft_swap(t_stack_node **head)
+void	ft_rotate(t_stack_node **head)
 {
+	t_stack_node	*last_node;
+
 	if (!head || !(*head) || !(*head)->next)
 		return ;
+	last_node = ft_last_node(*head);
+	last_node->next = *head;
 	*head = (*head)->next;
-	(*head)->prev->prev = *head;
-	if ((*head)->next)
-	{
-		(*head)->prev->next = (*head)->next;
-		(*head)->next->prev = (*head)->prev;
-	}
-	else
-		(*head)->prev->next = NULL;
-	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
-void	sa(t_stack_node **a)
+void	ra(t_stack_node **a)
 {
 	if (!(*a))
 		return ;
-	ft_swap(a);
+	ft_rotate(a);
 }
 
-void	sb(t_stack_node **b)
+void	rb(t_stack_node **b)
 {
 	if (!(*b))
 		return ;
-	ft_swap(b);
+	ft_rotate(b);
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	rr(t_stack_node **a, t_stack_node **b)
 {
 	if (!(*a) || !(*b))
 		return ;
-	ft_swap(a);
-	ft_swap(b);
+	ft_rotate(a);
+	ft_rotate(b);
 }

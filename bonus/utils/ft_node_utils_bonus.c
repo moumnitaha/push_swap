@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_node_utils.c                                    :+:      :+:    :+:   */
+/*   ft_node_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:04:31 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 16:08:03 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/10 23:33:47 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bonus_checker.h"
+#include "../checker_bonus.h"
 
 void	ft_append_node(t_stack_node **stack_a, int nbr)
 {
