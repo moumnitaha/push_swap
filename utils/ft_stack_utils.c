@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:10:32 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:45:40 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,12 @@ void	index_stack(t_stack_node **a)
 void	sort_of_five(t_stack_node **a, t_stack_node **b)
 {
 	set_position(*a);
-	rotate_stack_a(a, big_node(*a));
+	rotate_stack_a(a, small_node(*a));
 	pb(b, a);
 	set_position(*a);
-	rotate_stack_a(a, big_node(*a));
+	rotate_stack_a(a, small_node(*a));
 	pb(b, a);
 	sort_of_three(a);
 	while (*b)
 		pa(a, b);
-	sa(a);
-	ra(a);
-	ra(a);
 }
