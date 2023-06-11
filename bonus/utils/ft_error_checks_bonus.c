@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:31:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 10:28:27 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:06:10 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,12 @@ int	ft_error_repitition(t_stack_node **a, int nbr)
 		curr_a = curr_a->next;
 	}
 	return (0);
+}
+
+void	exit_error(t_stack_node **a, t_stack_node **b)
+{
+	free_stack(a);
+	free_stack(b);
+	write(2, "Error\n", 6);
+	exit(0);
 }

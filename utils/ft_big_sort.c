@@ -6,11 +6,25 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 10:30:48 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 10:50:20 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:17:58 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	set_chunk(int len)
+{
+	if (len <= 100)
+		return (15);
+	else if (len <= 500)
+		return (30);
+	else if (len <= 1000)
+		return (45);
+	else if (len <= 2000)
+		return (65);
+	else
+		return (150);
+}
 
 void	fill_b(t_stack_node **a, t_stack_node **b)
 {
@@ -20,7 +34,7 @@ void	fill_b(t_stack_node **a, t_stack_node **b)
 
 	len = stack_len(*a);
 	i = 1;
-	chunk = (0.000000053 * len * len) + (0.03 * len) + 14.5;
+	chunk = set_chunk(len);
 	while (stack_len(*a))
 	{
 		if ((*a)->index < i)

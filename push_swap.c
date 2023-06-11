@@ -6,33 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 16:33:17 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:22:40 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	leaks(void)
-{
-	system("leaks push_swap");
-}
-
-void	free_stack(t_stack_node **stack)
-{
-	t_stack_node	*tmp;
-	t_stack_node	*current;
-
-	if (NULL == stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
-	}
-	*stack = NULL;
-}
 
 int	main(int ac, char **av)
 {
@@ -58,6 +36,5 @@ int	main(int ac, char **av)
 		big_sort(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
-	atexit(leaks);
 	return (0);
 }
