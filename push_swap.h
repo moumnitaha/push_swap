@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 10:08:25 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 12:14:52 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ int				int_max_check(long long nbr);
 int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
 int				is_sorted(t_stack_node *head);
+char			*get_next_line(int fd);
 void			index_stack(t_stack_node **a);
 void			big_sort(t_stack_node **a, t_stack_node **b);
-char			*get_next_line(int fd);
-long long		ft_atoll(const char *str);
 void			draw_stack(t_stack_node *head);
 void			split_args(int ac, char **av, t_stack_node **a);
 void			init_nodes(t_stack_node **a, t_stack_node **b);
@@ -68,4 +67,5 @@ void			ft_rev_rotate(t_stack_node **head);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
+long long		ft_atoll(const char *str);
 #endif
