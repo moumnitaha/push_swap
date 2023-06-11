@@ -6,11 +6,25 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/10 23:26:08 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 12:05:00 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+
+void	write_error(void)
+{
+	write(2, "Error\n", 6);
+	exit (1);
+}
+
+void	print_status(t_stack_node *a, int len)
+{
+	if (is_sorted(a) && len == stack_len(a))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+}
 
 void	parse_commands(char *line, t_stack_node **a, t_stack_node **b)
 {
@@ -47,21 +61,22 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		exit (1);
+	if (ac == 1 || (ac > 1 && !av[1][0]))
+		write_error();
+	split_args(ac, av, &a);
+	if (is_sorted(a))
+		exit(0);
+	len = stack_len(a);
 	line = get_next_line(STDIN_FILENO);
 	if (!line)
-		exit (1);
-	split_args(ac, av, &a);
-	len = stack_len(a);
+		exit (0);
 	while (line)
 	{
 		parse_commands(line, &a, &b);
+		free(line);
 		line = get_next_line(STDIN_FILENO);
 	}
-	if (is_sorted(a) && len == stack_len(a))
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
+	free(line);
+	print_status(a, len);
 	return (0);
 }
