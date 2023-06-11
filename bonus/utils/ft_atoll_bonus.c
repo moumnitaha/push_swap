@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:20:46 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/10 23:33:17 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:26:26 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	count_digits(const char *str)
 	return (count);
 }
 
-long	ft_atoll(const char *str)
+long long	ft_atoll(const char *str)
 {
 	int			sign;
 	int			index;
@@ -44,6 +44,8 @@ long	ft_atoll(const char *str)
 	index = 0;
 	sign = 1;
 	result = 0;
+	if (strlen(str) > 19)
+		return (LLONG_MAX);
 	while (str[index] && ft_iswhitespace(str[index]))
 		index++;
 	if (str[index] == '+' || str[index] == '-')

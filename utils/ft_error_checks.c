@@ -6,15 +6,15 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:31:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/08 09:50:48 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:21:15 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	int_max_check(long nbr)
+int	int_max_check(long long nbr)
 {
-	if (nbr > INT_MAX || nbr < INT_MIN)
+	if (nbr != (int)nbr)
 		return (0);
 	return (1);
 }
@@ -39,6 +39,8 @@ int	is_sorted(t_stack_node *head)
 {
 	if (!head)
 		return (0);
+	if (stack_len(head) == 1)
+		exit(0);
 	while (head->next)
 	{
 		if (head->value > head->next->value)

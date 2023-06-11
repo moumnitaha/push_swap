@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 00:18:09 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:07:18 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_stack_init(t_stack_node **a, char *arg)
 {
-	long			nbr;
+	long long	nbr;
 
 	nbr = ft_atoll(arg);
 	if (!int_max_check(nbr))

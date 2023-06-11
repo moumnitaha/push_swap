@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 23:22:37 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/10 23:23:57 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:27:17 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ t_stack_node	*target_up_node(t_stack_node **stack);
 t_stack_node	*target_down_node(t_stack_node **stack);
 int				ft_error_syntax(char *str);
 int				ft_error_repitition(t_stack_node **a, int nbr);
-int				int_max_check(long nbr);
+int				int_max_check(long long nbr);
 int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
 int				is_sorted(t_stack_node *head);
 char			*get_next_line(int fd);
-long			ft_atoll(const char *str);
+long long		ft_atoll(const char *str);
 void			draw_stack(t_stack_node *head);
 void			get_target_node_down(t_stack_node **a, t_stack_node **b);
 void			split_args(int ac, char **av, t_stack_node **a);

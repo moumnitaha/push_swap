@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/10 23:20:34 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:08:25 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ t_stack_node	*big_node(t_stack_node *head);
 t_stack_node	*small_node(t_stack_node *head);
 int				ft_error_syntax(char *str);
 int				ft_error_repitition(t_stack_node **a, int nbr);
-int				int_max_check(long nbr);
+int				int_max_check(long long nbr);
 int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
 int				is_sorted(t_stack_node *head);
 void			index_stack(t_stack_node **a);
 void			big_sort(t_stack_node **a, t_stack_node **b);
 char			*get_next_line(int fd);
-long			ft_atoll(const char *str);
+long long		ft_atoll(const char *str);
 void			draw_stack(t_stack_node *head);
 void			split_args(int ac, char **av, t_stack_node **a);
 void			init_nodes(t_stack_node **a, t_stack_node **b);
@@ -51,6 +51,7 @@ void			rotate_stack_b(t_stack_node **b, t_stack_node *node);
 void			ft_append_node(t_stack_node **stack, int nbr);
 void			ft_stack_init(t_stack_node **a, char *arg);
 void			sort_of_three(t_stack_node **head);
+void			sort_of_five(t_stack_node **a, t_stack_node **b);
 void			set_position(t_stack_node *head);
 void			ft_push(t_stack_node **src, t_stack_node **dest);
 void			pa(t_stack_node **a, t_stack_node **b);
