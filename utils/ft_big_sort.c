@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 10:30:48 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:17:58 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:50:38 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,14 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 		rotate_stack_b(b, big_node(*b));
 		pa(a, b);
 	}
+}
+
+void	sort_of_four(t_stack_node **a, t_stack_node **b)
+{
+	rotate_stack_a(a, small_node(*a));
+	if (is_sorted(*a))
+		return ;
+	pb(b, a);
+	sort_of_three(a);
+	pa(a, b);
 }

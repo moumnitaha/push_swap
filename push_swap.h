@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 14:17:02 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:51:00 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			rotate_stack_b(t_stack_node **b, t_stack_node *node);
 void			ft_append_node(t_stack_node **stack, int nbr);
 void			ft_stack_init(t_stack_node **a, char *arg);
 void			sort_of_three(t_stack_node **head);
+void			sort_of_four(t_stack_node **a, t_stack_node **b);
 void			sort_of_five(t_stack_node **a, t_stack_node **b);
 void			set_position(t_stack_node *head);
 void			ft_push(t_stack_node **src, t_stack_node **dest);
