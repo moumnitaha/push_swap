@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:14:58 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 11:30:45 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:15:10 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ void	set_position(t_stack_node *head)
 	}
 }
 
+void	init_nodes(t_stack_node **a, t_stack_node **b)
+{
+	set_position(*a);
+	set_position(*b);
+}
+
 void	sort_of_three(t_stack_node **head)
 {
 	t_stack_node	*big;
@@ -45,12 +51,6 @@ void	sort_of_three(t_stack_node **head)
 		rra(head);
 	if ((*head)->next == small_node(*head))
 		sa(head);
-}
-
-void	init_nodes(t_stack_node **a, t_stack_node **b)
-{
-	set_position(*a);
-	set_position(*b);
 }
 
 void	index_stack(t_stack_node **a)

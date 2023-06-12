@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 12:34:00 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:16:48 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	main(int ac, char **av)
 		sort_of_five(&a, &b);
 	else
 		big_sort(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+	free_stacks(&a, &b);
 	return (0);
 }

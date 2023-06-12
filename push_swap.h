@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:10:07 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:17:02 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				is_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
 int				is_sorted(t_stack_node *head);
 char			*get_next_line(int fd);
-void			free_stack(t_stack_node **stack);
+void			free_stacks(t_stack_node **a, t_stack_node **b);
 void			index_stack(t_stack_node **a);
 void			big_sort(t_stack_node **a, t_stack_node **b);
 void			draw_stack(t_stack_node *head);

@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 11:48:59 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:17:14 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ void	free_stack(t_stack_node **stack)
 		current = tmp;
 	}
 	*stack = NULL;
+}
+
+void	free_stacks(t_stack_node **a, t_stack_node **b)
+{
+	free_stack(a);
+	free_stack(b);
 }
