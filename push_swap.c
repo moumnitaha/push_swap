@@ -6,17 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 12:25:13 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 12:34:00 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	exit_err(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 int	main(int ac, char **av)
 {
@@ -25,10 +19,8 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1)
+	if (ac == 1 || (ac > 1 && !av[1][0]))
 		exit (0);
-	if (ac > 1 && !av[1][0])
-		exit_err();
 	split_args(ac, av, &a);
 	init_nodes(&a, &b);
 	index_stack(&a);
