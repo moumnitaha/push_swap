@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:31:51 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:24:51 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 12:04:23 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	split_args(int ac, char **av, t_stack_node **a)
 			if (ft_error_syntax(*splited))
 			{
 				write(2, "Error\n", 6);
-				exit(0);
+				exit(1);
 			}
 			ft_stack_init(a, *splited);
 			free(*splited);

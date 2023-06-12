@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 23:22:37 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:32:35 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 11:55:39 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ typedef struct s_stack_node {
 	struct s_stack_node	*prev;
 }	t_stack_node;
 
-t_stack_node	*ft_last_node(t_stack_node *head);
-t_stack_node	*big_node(t_stack_node *head);
 t_stack_node	*small_node(t_stack_node *head);
+t_stack_node	*big_node(t_stack_node *head);
+t_stack_node	*ft_last_node(t_stack_node *head);
 int				ft_error_syntax(char *str);
 int				ft_error_repitition(t_stack_node **a, int nbr);
 int				int_max_check(long long nbr);

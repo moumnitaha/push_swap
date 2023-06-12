@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:31:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:06:10 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 11:50:24 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void	exit_error(t_stack_node **a, t_stack_node **b)
 	free_stack(a);
 	free_stack(b);
 	write(2, "Error\n", 6);
-	exit(0);
+	exit(1);
 }

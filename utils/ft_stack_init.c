@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:33:33 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:24:26 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 11:48:59 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	ft_stack_init(t_stack_node **a, char *arg)
 	if (!int_max_check(nbr))
 	{
 		write(2, "Error\n", 6);
-		exit(0);
+		exit(1);
 	}
 	if (ft_error_repitition(a, nbr))
 	{
 		write(2, "Error\n", 6);
-		exit(0);
+		exit(1);
 	}
 	ft_append_node(a, nbr);
 }

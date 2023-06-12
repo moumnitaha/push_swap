@@ -6,17 +6,11 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 17:30:43 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 11:47:30 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-
-void	write_error(void)
-{
-	write(2, "Error\n", 6);
-	exit (0);
-}
 
 void	print_status(t_stack_node *a, int len)
 {
@@ -24,6 +18,12 @@ void	print_status(t_stack_node *a, int len)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+}
+
+void	exit_err(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	parse_commands(char *line, t_stack_node **a, t_stack_node **b)
@@ -63,8 +63,10 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac > 1 && !av[1][0]))
-		write_error();
+	if (ac == 1)
+		exit(0);
+	if (ac > 1 && !av[1][0])
+		exit_err();
 	split_args(ac, av, &a);
 	len = stack_len(a);
 	line = get_next_line(STDIN_FILENO);

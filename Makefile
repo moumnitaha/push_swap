@@ -6,13 +6,14 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 17:39:10 by tmoumni           #+#    #+#              #
-#    Updated: 2023/06/11 10:31:08 by tmoumni          ###   ########.fr        #
+#    Updated: 2023/06/12 11:55:22 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CHECKER = checker
 HEADER = push_swap.h
+B_HEADER = bonus/checker_bonus.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -45,7 +46,7 @@ B_OBJS = $(B_SRCS:%.c=%.o)
 all: $(NAME)
 	@echo "\n$(GREEN)[[ push_swap created successfully ]]$(END)\n"
 
-%.o : %.c $(HEADER)
+%.o : %.c $(HEADER) $(B_HEADER)
 	@$(CC) -c $< $(CFLAGS) -o $@
 	@echo "$(CYAN)Compiling:$(END)" $< "..."
 
