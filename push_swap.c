@@ -6,11 +6,20 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 15:25:20 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 17:36:16 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_sorting(t_stack_node **a, t_stack_node **b)
+{
+	if (is_sorted(*a))
+	{
+		free_stacks(a, b);
+		exit(0);
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -24,11 +33,7 @@ int	main(int ac, char **av)
 	split_args(ac, av, &a);
 	init_nodes(&a, &b);
 	index_stack(&a);
-	if (is_sorted(a))
-	{
-		free_stacks(&a, &b);
-		exit(0);
-	}
+	check_sorting(&a, &b);
 	if (stack_len(a) == 2)
 		sa(&a);
 	else if (stack_len(a) == 3)
