@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 20:20:26 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/10 23:34:07 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 17:24:49 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static size_t	word_len(char const *s, int c)
 	return (count);
 }
 
-static void	*free_mem(char **array)
+void	*free_mem(char **array)
 {
 	size_t	j;
 

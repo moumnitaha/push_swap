@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 14:51:00 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 17:19:06 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int				stack_len(t_stack_node *head);
 int				is_sorted(t_stack_node *head);
 char			*get_next_line(int fd);
 void			free_stacks(t_stack_node **a, t_stack_node **b);
+void			free_stack(t_stack_node **stack);
+void			*free_mem(char **array);
 void			index_stack(t_stack_node **a);
 void			big_sort(t_stack_node **a, t_stack_node **b);
 void			draw_stack(t_stack_node *head);
@@ -49,7 +51,7 @@ void			init_nodes(t_stack_node **a, t_stack_node **b);
 void			rotate_stack_a(t_stack_node **a, t_stack_node *node);
 void			rotate_stack_b(t_stack_node **b, t_stack_node *node);
 void			ft_append_node(t_stack_node **stack, int nbr);
-void			ft_stack_init(t_stack_node **a, char *arg);
+void			ft_stack_init(t_stack_node **a, char *arg, char **tmp);
 void			sort_of_three(t_stack_node **head);
 void			sort_of_four(t_stack_node **a, t_stack_node **b);
 void			sort_of_five(t_stack_node **a, t_stack_node **b);

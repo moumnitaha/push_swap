@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:31:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/11 10:21:15 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 17:07:48 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int	is_sorted(t_stack_node *head)
 	if (!head)
 		return (0);
 	if (stack_len(head) == 1)
+	{
+		free_stack(&head);
 		exit(0);
+	}
 	while (head->next)
 	{
 		if (head->value > head->next->value)

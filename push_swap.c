@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 14:50:23 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/12 15:25:20 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int	main(int ac, char **av)
 	init_nodes(&a, &b);
 	index_stack(&a);
 	if (is_sorted(a))
+	{
+		free_stacks(&a, &b);
 		exit(0);
+	}
 	if (stack_len(a) == 2)
 		sa(&a);
 	else if (stack_len(a) == 3)
