@@ -6,13 +6,14 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 23:22:37 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 17:24:58 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/13 14:15:02 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
 # include <stdbool.h>
