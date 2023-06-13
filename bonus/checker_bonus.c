@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/13 14:22:45 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/13 14:25:29 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@ int	main(int ac, char **av)
 	}
 	free(line);
 	print_status(a, len);
-	atexit(leaks);
 	return (0);
 }
