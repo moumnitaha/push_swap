@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 17:39:10 by tmoumni           #+#    #+#              #
-#    Updated: 2023/06/12 17:20:59 by tmoumni          ###   ########.fr        #
+#    Updated: 2023/06/13 14:45:07 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,11 @@ bonus: $(NAME) $(B_OBJS) $(B_SRCS)
 
 clean:
 	@rm -rf $(OBJS) $(B_OBJS)
+	@echo "\n$(RED)[ Object files deleted successfully! ]$(END)\n"
 
 fclean:
 	@rm -rf $(OBJS) $(B_OBJS) $(NAME) $(CHECKER)
+	@echo "\n$(RED)[ All files deleted successfully! ]$(END)\n"
 
 re: fclean all
 
