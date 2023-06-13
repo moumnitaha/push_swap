@@ -6,19 +6,20 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:44:32 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/13 14:25:29 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/13 14:36:29 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	print_status(t_stack_node *a, int len)
+void	print_status(t_stack_node *a, t_stack_node *b, int len)
 {
 	if (is_sorted(a) && len == stack_len(a))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
 	free_stack(&a);
+	free_stack(&b);
 }
 
 void	exit_err_arg(void)
@@ -78,6 +79,6 @@ int	main(int ac, char **av)
 		line = get_next_line(STDIN_FILENO);
 	}
 	free(line);
-	print_status(a, len);
+	print_status(a, b, len);
 	return (0);
 }
