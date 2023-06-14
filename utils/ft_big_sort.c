@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 10:30:48 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/14 11:18:09 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/06/14 13:39:29 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	fill_b(t_stack_node **a, t_stack_node **b)
 	chunk = set_chunk(len);
 	while (stack_len(*a))
 	{
-		if ((*a)->index < i + chunk)
+		if ((*a)->index < chunk + i)
 		{
 			pb(b, a);
 			if ((*b)->index < i)
