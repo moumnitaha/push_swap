@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tahadev <tahadev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:42:00 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 17:19:06 by tmoumni          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:16:17 by tahadev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include "utils/libft.h"
 # include "bonus/gnl/get_next_line.h"
 
-typedef struct s_stack_node {
+typedef struct s_stack_node
+{
 	int					value;
 	int					index;
 	int					current_pos;
@@ -37,6 +38,7 @@ int				ft_error_syntax(char *str);
 int				ft_error_repitition(t_stack_node **a, int nbr);
 int				int_max_check(long long nbr);
 int				is_sorted(t_stack_node *head);
+int				is_b_sorted(t_stack_node *head);
 int				stack_len(t_stack_node *head);
 int				is_sorted(t_stack_node *head);
 char			*get_next_line(int fd);

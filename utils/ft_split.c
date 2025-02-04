@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tahadev <tahadev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 20:20:26 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 15:12:23 by tmoumni          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:15:30 by tahadev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	*free_mem(char **array)
 static char const	*skip_delimiter(char const *s, char c)
 {
 	while (*s && *s == c)
-			s++;
+		s++;
 	return (s);
 }
 

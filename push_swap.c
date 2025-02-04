@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tahadev <tahadev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:39:41 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/12 17:36:16 by tmoumni          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:20:29 by tahadev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ void	check_sorting(t_stack_node **a, t_stack_node **b)
 {
 	if (is_sorted(*a))
 	{
+		free_stacks(a, b);
+		exit(0);
+	}
+	else if (is_b_sorted(*a))
+	{
+		while (stack_len(*a))
+			pb(b, a);
+		while (stack_len(*b))
+		{
+			rrb(b);
+			pa(a, b);
+		}
 		free_stacks(a, b);
 		exit(0);
 	}

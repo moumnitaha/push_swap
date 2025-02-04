@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tahadev <tahadev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 23:22:37 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/06/13 14:15:02 by tmoumni          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:16:14 by tahadev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include "utils_bonus/libft.h"
 # include "gnl/get_next_line.h"
 
-typedef struct s_stack_node {
+typedef struct s_stack_node
+{
 	int					value;
 	int					current_pos;
 	int					above_median;
